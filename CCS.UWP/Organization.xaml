@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="CCS.UWP.Organization"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:local="using:Shared.ModelView"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Init">
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton x:Uid="JoinOrganizationC" Label="Join" Icon="Permissions" Click="JoinOrganization" />
+            <AppBarButton Icon="Add" x:Uid="CreateCompanyB" Label="Register" Click="RegisterOrganization"/>
+            
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="OrganizationGrid" >
+
+        <Hub x:Uid="Organizations" Header="OrganizationsC" Grid.Column="1">
+
+            <HubSection x:Uid="MyOrganizations" Header="MyOrganizationsT" VerticalContentAlignment="Stretch">
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ListView HorizontalContentAlignment="Stretch" SelectionMode="Single" ItemsSource="{Binding OrganizationsList}" />
+                        <StackPanel Grid.Row="3" Visibility="{Binding FullAcitivities}">
+                            <Button x:Name="LeaveOrganization" x:Uid="LeaveOrganization" Content="LeaveOrganizationT"  Margin="4"  Click="LeaveSelectedOrganization" HorizontalAlignment="Stretch" />
+                            <Button  x:Name="CreateOffice" x:Uid="CreateOfficeB" Content="CreateOfficeT"  Margin="5" Click="SelectCreateOffice" HorizontalAlignment="Stretch"/>
+                        </StackPanel>                
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+            <HubSection x:Uid="MyOffice" Header="MyOfficeT" HorizontalAlignment="Stretch">
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition  Height="Auto" />
+                            <RowDefinition />
+                            <RowDefinition  Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ComboBox ItemsSource="{Binding OfficeList}"  FontSize="14" Loaded="OfficesLoadd"  />
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+
+        </Hub>
+
+
+    </Grid>
+</Page>

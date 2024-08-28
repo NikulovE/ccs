@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+  <xs:import schemaLocation="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="TupleOfbooleanstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element name="m_Item2" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanstring" nillable="true" type="tns:TupleOfbooleanstring" />
+  <xs:complexType name="TupleOfbooleanUserProfileu77tht3H">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="UserProfile" Namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CarBuddyAPI" name="m_Item2" nillable="true" type="q1:UserProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanUserProfileu77tht3H" nillable="true" type="tns:TupleOfbooleanUserProfileu77tht3H" />
+  <xs:complexType name="TupleOfbooleanArrayOfUserGroupu77tht3H">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="ArrayOfUserGroup" Namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CarBuddyAPI" name="m_Item2" nillable="true" type="q2:ArrayOfUserGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanArrayOfUserGroupu77tht3H" nillable="true" type="tns:TupleOfbooleanArrayOfUserGroupu77tht3H" />
+  <xs:complexType name="TupleOfbooleanArrayOfOfficeOnMapu77tht3H">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="ArrayOfOfficeOnMap" Namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CarBuddyAPI" name="m_Item2" nillable="true" type="q3:ArrayOfOfficeOnMap" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanArrayOfOfficeOnMapu77tht3H" nillable="true" type="tns:TupleOfbooleanArrayOfOfficeOnMapu77tht3H" />
+  <xs:complexType name="TupleOfbooleanint">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element name="m_Item2" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanint" nillable="true" type="tns:TupleOfbooleanint" />
+  <xs:complexType name="TupleOfbooleanArrayOfRouteu77tht3H">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="ArrayOfRoute" Namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CarBuddyAPI" name="m_Item2" nillable="true" type="q4:ArrayOfRoute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanArrayOfRouteu77tht3H" nillable="true" type="tns:TupleOfbooleanArrayOfRouteu77tht3H" />
+  <xs:complexType name="TupleOfbooleandoubledouble">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{2}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="double" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="double" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element name="m_Item2" type="xs:double" />
+      <xs:element name="m_Item3" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleandoubledouble" nillable="true" type="tns:TupleOfbooleandoubledouble" />
+  <xs:complexType name="TupleOfbooleanArrayOfOnMapPointu77tht3H">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="ArrayOfOnMapPoint" Namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CarBuddyAPI" name="m_Item2" nillable="true" type="q5:ArrayOfOnMapPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanArrayOfOnMapPointu77tht3H" nillable="true" type="tns:TupleOfbooleanArrayOfOnMapPointu77tht3H" />
+  <xs:complexType name="TupleOfbooleanArrayOfstringty7Ep6D1">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="ArrayOfstring" Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="m_Item2" nillable="true" type="q6:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanArrayOfstringty7Ep6D1" nillable="true" type="tns:TupleOfbooleanArrayOfstringty7Ep6D1" />
+  <xs:complexType name="TupleOfbooleanUserCaru77tht3H">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="UserCar" Namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CarBuddyAPI" name="m_Item2" nillable="true" type="q7:UserCar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanUserCaru77tht3H" nillable="true" type="tns:TupleOfbooleanUserCaru77tht3H" />
+  <xs:complexType name="TupleOfbooleanUserCompanionu77tht3H">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="UserCompanion" Namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CarBuddyAPI" name="m_Item2" nillable="true" type="q8:UserCompanion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanUserCompanionu77tht3H" nillable="true" type="tns:TupleOfbooleanUserCompanionu77tht3H" />
+  <xs:complexType name="TupleOfbooleanWeeklyScheduleu77tht3H">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="WeeklySchedule" Namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CarBuddyAPI" name="m_Item2" nillable="true" type="q9:WeeklySchedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanWeeklyScheduleu77tht3H" nillable="true" type="tns:TupleOfbooleanWeeklyScheduleu77tht3H" />
+  <xs:complexType name="TupleOfbooleanTupleOfdoubledoubleU6ho3Bhd">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="double" Namespace="http://www.w3.org/2001/XMLSchema" />
+            <GenericParameter Name="double" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element name="m_Item2" nillable="true" type="tns:TupleOfdoubledouble" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanTupleOfdoubledoubleU6ho3Bhd" nillable="true" type="tns:TupleOfbooleanTupleOfdoubledoubleU6ho3Bhd" />
+  <xs:complexType name="TupleOfdoubledouble">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="double" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="double" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:double" />
+      <xs:element name="m_Item2" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfdoubledouble" nillable="true" type="tns:TupleOfdoubledouble" />
+  <xs:complexType name="TupleOfbooleanArrayOfConversationu77tht3H">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="ArrayOfConversation" Namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/CarBuddyAPI" name="m_Item2" nillable="true" type="q10:ArrayOfConversation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanArrayOfConversationu77tht3H" nillable="true" type="tns:TupleOfbooleanArrayOfConversationu77tht3H" />
+  <xs:complexType name="TupleOfbooleanArrayOfTripOfferu77tht3H">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="ArrayOfTripOffer" Namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" type="xs:boolean" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CarBuddyAPI" name="m_Item2" nillable="true" type="q11:ArrayOfTripOffer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfbooleanArrayOfTripOfferu77tht3H" nillable="true" type="tns:TupleOfbooleanArrayOfTripOfferu77tht3H" />
+</xs:schema>

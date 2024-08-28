@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CCS.EditProfile" Disappearing="SaveProfile">
+    <ContentPage.Content>
+        <Grid x:Name="ProfileGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label x:Uid="FillingProfileLabel" Text="Profile"  HorizontalOptions="Start" Margin="10,10,0,0" VerticalOptions="Center" FontSize="Large" />
+            <StackLayout   Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0,0,0">
+                <StackLayout   Orientation="Horizontal">
+                    <Label  x:Uid="FirstName" Text="First name" Margin="5" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                    <Entry x:Name="FNameBox"  Text="{Binding Path=FirstName, Mode=TwoWay}" Margin="2,11,2,2" WidthRequest="200" />
+                </StackLayout>
+                <StackLayout x:Name="LastNameStack"  Orientation="Horizontal">
+                    <Label x:Uid="LastName" Text="Last name" Margin="5" VerticalTextAlignment="Center"/>
+                    <Entry x:Name="LNameBox"   Text="{Binding Path=LastName, Mode=TwoWay}" Margin="2,11,2,2" WidthRequest="200" />
+                </StackLayout>
+                <StackLayout x:Name="PhoneStack"  Orientation="Horizontal" >
+                    <Label x:Name="FName" x:Uid="Phone" Text="Phone" Margin="5"  VerticalTextAlignment="Center" />
+                    <!--<TextBlock Text="+" Style="{StaticResource BaseText}" />-->
+                    <Entry x:Name="PhoneBox"  Text="{Binding Path=Phone, Mode=TwoWay}" Placeholder="+78000000000" Margin="2,11,2,2" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Driver" Margin="5" VerticalTextAlignment="Center"/>
+                    <Switch IsToggled="{Binding Path=IsDriver}" x:Name="RoleToggler"/>
+                    <Button Text="Car" IsEnabled="{Binding Path=IsDriver}" Clicked="CheckCarDetails"/>
+                </StackLayout>
+                <StackLayout  Orientation="Horizontal" >
+                    <Label  Text="Amends" Margin="5"  VerticalTextAlignment="Center" />
+                    <!--<TextBlock Text="+" Style="{StaticResource BaseText}" />-->
+                    <Picker Title="Amends" SelectedIndex="{Binding Path=Payment, Mode=TwoWay}" x:Name="DriverReward">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Pay</x:String>
+                                <x:String>Freepay</x:String>
+                                <x:String>Not decided</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+                
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Grid.Row="2" VerticalOptions="End"  Margin="10,10,20,10">
+                <Button Text="Build routes" IsVisible="{Binding Path=IsDriver}" Clicked="BuildRoutes"/>
+                <Button Text="Organizations"  Clicked="CheckOrganizations"/>
+                <Button Text="Schedule" Clicked="CheckSchedule" />
+                <Button Text="Set home" Clicked="SetHome" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,99 @@
+﻿@model AppWeb.Models.UserFeedback
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Feedbacks</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "Index", "About")</li>
+                    <li>@Html.ActionLink("Downloads", "Index", "Downloads") </li>
+                    <li class="active">@Html.ActionLink("Feedback", "Index", "Feedback")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @*<li>@Html.ActionLink("Login", null, "Login")</li>*@
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3">
+                <p>@Html.ActionLink("Error", "Error")</p>
+            </div>
+
+            <div class="col-sm-9">
+                @if (@ViewBag.LoginedUser==true)
+                {
+                    using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary()
+                        <h4>Rate this product:</h4>
+                        @Html.DropDownListFor(x => x.SelectedStarsCounter, Model.StarsSelector, new {@Value= ViewBag.PreviousUserStars })
+                        <h4>Tell us what you think:</h4>
+                        <form role="form">
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.FeedbackText, new { @class = "form-control", @Value= ViewBag.PreviousUserFeedbacks })
+                                @*<textarea class="form-control" rows="3" required></textarea>*@
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    }
+                }
+               
+                <br><br>
+                <div class="row">
+                    @foreach (var feedback in ViewBag.Feedbacks)
+                    {
+                        // cut for brevity, need to add back more code from original
+                        <div class="col-sm-10">
+                            <h4>@feedback.UserName <small>@for (byte star = 0; star != @feedback.Stars; star++)
+                            { <object class="glyphicon glyphicon-star"></object> }</small></h4>
+                            <p>@feedback.FeedbackText</p>
+
+                            @if (@feedback.DeveloperAnswer!=null)
+                            {
+                                <div class="text-left col-xs-10" >
+                                    <p>Developer answer: @feedback.DeveloperAnswer</p>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+              
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-left navbar-fixed-bottom">
+        <p>Evgeniy Nikulov</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CCS.Registration" >
+    <ContentPage.Content>
+        <Grid x:Name="RegistrationGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Text="Registration" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large" />
+            <StackLayout Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20">
+                <StackLayout  x:Name="InputEmailField" Orientation="Horizontal">
+                    <Label Text="Email:" Margin="5" FontSize="Medium" VerticalOptions="Center"/>
+                    <Entry x:Name="InputedMail" VerticalOptions="Center" Placeholder="example@mail.com" />
+                </StackLayout>
+                <Label Text="Use your personal mailbox. Password will be sent to this email" />
+                <Label HorizontalTextAlignment="End" TextColor="Red" Text="{Binding Path=OutPut, Mode=TwoWay}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <Button x:Name="SendKey" Text="Continue" Clicked="CheckEmail"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

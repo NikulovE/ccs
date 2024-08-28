@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CCS"
+             x:Class="CCS.Trips" Title="Trips">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ConfirmConverter x:Key="ConfirmConverter"/>             
+            <local:FalseVisibile x:Key="FalseVisibile" />
+            <local:TrueVisible x:Key="TrueVisible" />
+            <local:ToHomeConverter x:Key="ToHomeConverter" />
+            <local:DateTimeConverter x:Key="DateTimeConverter" />
+        </ResourceDictionary>
+       
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid >
+            <ListView  x:Name="TripsList" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid  >
+                                <Grid.ColumnDefinitions>                                   
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Companion}" VerticalTextAlignment="Center"/>
+                                <!--<Label Text="{Binding Confirmed}" />-->
+                                <Button Grid.Column="1" Text="{Binding Confirmed, Converter={StaticResource ConfirmConverter}}" IsEnabled="{Binding Path=IsCanBeAccepted}" IsVisible="{Binding Path=IsCanBeAccepted, Converter={StaticResource FalseVisibile}}" WidthRequest="40"/>
+                                <Button  Grid.Column="1" Text="√" IsVisible="{Binding Path=IsCanBeAccepted, Converter={StaticResource TrueVisible}}" ClassId="{Binding Path=OfferID}" Clicked="AcceptTrip" WidthRequest="40"/>
+                                <Button  Grid.Column="2" Text="x" WidthRequest="40" ClassId="{Binding Path=OfferID}"  Clicked="RejectTrip"/>
+                                <Label Grid.Column="3"  Text="{Binding Path=IsToHome, Converter={StaticResource ToHomeConverter}}" VerticalTextAlignment="Center"/>
+                                <Label Grid.Column="4"  Text="{Binding Path=StartTime, Converter={StaticResource DateTimeConverter}}" VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+    
+        <!--<ListView  ItemsSource="{Binding Path=TripOffers}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Path=Companion}" />
+                    --><!--<Button Text="{Binding Confirmed, Converter={StaticResource ConfirmConverter}}" IsEnabled="{Binding Path=IsCanBeAccepted}" IsVisible="{Binding Path=IsCanBeAccepted, Converter={StaticResource FalseVisibile}}"/>-->
+                    <!--<Button Content="&#xE0E7;" FontFamily="/CarBuddyClassic;component/Resources/#Segoe MDL2 Assets" Visibility="{Binding Path=IsCanBeAccepted, Converter={StaticResource TrueVisibile}}" Tag="{Binding Path=OfferID}" Click="AcceptOffer"/>
+                        <Button Content="&#xE10A;" FontFamily="/CarBuddyClassic;component/Resources/#Segoe MDL2 Assets" Tag="{Binding Path=OfferID}" Click="RejectOffer"/>
+                        <TextBlock Text="{Binding Path=IsToHome, Converter={StaticResource ToHomeConverter}}" FontSize="14" Style="{StaticResource Symbol}"    />
+                        <TextBlock Text="{Binding Path=StartTime, Converter={StaticResource DayConverter}}"  Style="{StaticResource Symbol}" ToolTip="{Binding Path=StartTime, Converter={StaticResource DateTimeConverter}}"/>--><!--
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+
+   
+
+
+
+</ContentPage>

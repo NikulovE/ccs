@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="1"
+    android:rowCount="3">
+    <TextView
+        android:text="Your profile"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center_horizontal" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_vertical">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="First name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:inputType="textPersonName"
+                android:id="@+id/FirstName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="200dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Last name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:inputType="textPersonName"
+                android:id="@+id/LastName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="200dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Phone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:inputType="phone"
+                android:id="@+id/PhoneBox"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="150dp"
+                android:hint="88009999999"
+                android:phoneNumber="true" />
+        </LinearLayout>
+        <TextView
+            android:text="This information will be shared only between your collegues just for best communications"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/OutFilling"
+            android:gravity="right"
+            android:textColor="#DC143C"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <Button
+        android:text="Continue"
+        android:id="@+id/ContinueFillingProfile"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal" />
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/FillingProgressBar"
+        android:layout_gravity="fill_horizontal"
+        android:indeterminate="false" />
+</GridLayout>

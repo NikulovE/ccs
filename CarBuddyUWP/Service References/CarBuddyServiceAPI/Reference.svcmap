@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="536bf644-2f98-44fa-9912-aef14d5e22c2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://api.unicarbuddy.ru/CarBuddyService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CarBuddyService1.wsdl" MetadataType="Wsdl" ID="640f6456-f888-419b-906d-50110a3fa4e2" SourceId="1" SourceUrl="http://api.unicarbuddy.ru/CarBuddyService.svc?wsdl" />
+    <MetadataFile FileName="CarBuddyService5.xsd" MetadataType="Schema" ID="611b1a7e-6d21-4277-b71a-c27c7d62e336" SourceId="1" SourceUrl="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CarBuddyService51.xsd" MetadataType="Schema" ID="30764884-f93d-40ac-87a8-5d26137a34d4" SourceId="1" SourceUrl="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CarBuddyService52.xsd" MetadataType="Schema" ID="3aee9c40-a4b0-4c21-a367-733700685962" SourceId="1" SourceUrl="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CarBuddyService53.xsd" MetadataType="Schema" ID="d522fdc9-ecce-4ac7-a3ab-1884440e835a" SourceId="1" SourceUrl="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CarBuddyService54.xsd" MetadataType="Schema" ID="292a6676-c327-4dc6-adab-1f065db52f37" SourceId="1" SourceUrl="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

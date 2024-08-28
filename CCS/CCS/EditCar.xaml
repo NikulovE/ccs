@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CCS.EditCar" Disappearing="UpdateCarProfile" Appearing="ContentPage_Appearing">
+    <ContentPage.Content>
+        <Grid x:Name="CarGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Text="Car"  HorizontalOptions="Start" Margin="10,10,0,0" VerticalOptions="Center" FontSize="Large" Grid.Row="0"/>
+            <StackLayout   Grid.Row="1" Margin="10,0,0,0" HorizontalOptions="Start" >
+                <StackLayout  Orientation="Horizontal" >
+                    <Label  Text="Brand" Margin="5" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
+                    <Picker   Title="{Binding Brand, Mode=TwoWay}" x:Name="CarBrandSelector" SelectedIndexChanged="FinalSelectCarBrand" WidthRequest="250" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout  Orientation="Horizontal" >
+                    <Label  Text="Model" Margin="5" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
+                    <Picker Title="{Binding Model, Mode=TwoWay}" x:Name="CarModelSelector" SelectedIndexChanged="SelectCarModel" WidthRequest="250" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout  Orientation="Horizontal" >
+                    <Label Text="Number" Margin="5"  VerticalTextAlignment="Center" />
+                    <Entry x:Name="GovNumber"  Placeholder="E001KX01" Text="{Binding GovNumber}" />
+                </StackLayout>
+                <StackLayout  Orientation="Horizontal">
+                    <Label Text="Places" Margin="5" VerticalTextAlignment="Center"/>
+                    <Button Text="-" WidthRequest="40" Clicked="DecreasePassangerPlaces"/>
+                    <Label  Text="{Binding Places, Mode=TwoWay}" Margin="5" VerticalTextAlignment="Center"/>
+                    <Button Text="+" WidthRequest="40" BorderRadius="5" Clicked="ExpandPassangerPlaces" />
+                </StackLayout>
+
+
+            </StackLayout>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

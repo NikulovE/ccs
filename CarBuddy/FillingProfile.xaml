@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="CCS.WinStore.FillingProfile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CCS.WinStore"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Uid="FillingProfileLabel" Text="FillingProfileLabel"  HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderTextBlockStyle}" />
+        <StackPanel x:Name="NickName"  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel x:Name="FirstNameStack"  Orientation="Horizontal">
+                <TextBlock  x:Uid="FirstName" Text="First nameTB" Margin="5" VerticalAlignment="Center" Style="{StaticResource SubheaderTextBlockStyle}" />
+                <TextBox x:Name="FNameBox"   Style="{StaticResource BaseBox}" Text="{Binding Path=FirstName, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="2,11,2,2"/>
+            </StackPanel>
+            <StackPanel x:Name="LastNameStack"  Orientation="Horizontal">
+                <TextBlock x:Uid="LastName" Text="Last nameTB" Margin="5" Style="{StaticResource SubheaderTextBlockStyle}" />
+                <TextBox x:Name="LNameBox"  Style="{StaticResource BaseBox}" Text="{Binding Path=LastName, Mode=TwoWay}" Margin="2,11,2,2" />
+            </StackPanel>
+            <StackPanel x:Name="PhoneStack"  Orientation="Horizontal">
+                <TextBlock x:Name="FName" x:Uid="PhoneC" Text="Phone" Margin="5" Style="{StaticResource SubheaderTextBlockStyle}"   />
+                <!--<TextBlock Text="+" Style="{StaticResource BaseText}" />-->
+                <TextBox x:Name="PhoneBox"   Style="{StaticResource BaseBox}"  Text="{Binding Path=Phone, Mode=TwoWay}" InputScope="TelephoneNumber" PlaceholderText="+78000000000" Margin="2,11,2,2"/>
+            </StackPanel>
+            <TextBlock x:Uid="DescriptionOfFillingProfile" Text="DescriptionOfFillingProfile" Style="{StaticResource Description}"/>
+            <TextBlock x:Name="out1" Text="{Binding Path=OutPut, Mode=TwoWay}"  HorizontalAlignment="Right" Foreground="Red"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="ContinueFillingProfile"  Margin="5" x:Uid="Continue" Content="ContinueC" Click="CompleteFillingProfile" />
+        </StackPanel>
+
+    </Grid>
+</Page>

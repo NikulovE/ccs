@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/CarBuddyAPI" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="UserProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDriver" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OfficeID" type="xs:int" />
+      <xs:element minOccurs="0" name="Payment" type="xs:int" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rating" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserProfile" nillable="true" type="tns:UserProfile" />
+  <xs:complexType name="ArrayOfUserGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserGroup" nillable="true" type="tns:UserGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserGroup" nillable="true" type="tns:ArrayOfUserGroup" />
+  <xs:complexType name="UserGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsOrganization" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsVisible" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TeamID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserGroup" nillable="true" type="tns:UserGroup" />
+  <xs:complexType name="ArrayOfOfficeOnMap">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OfficeOnMap" nillable="true" type="tns:OfficeOnMap" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOfficeOnMap" nillable="true" type="tns:ArrayOfOfficeOnMap" />
+  <xs:complexType name="OfficeOnMap">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Longtitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OfficeOnMap" nillable="true" type="tns:OfficeOnMap" />
+  <xs:complexType name="WeekActuality">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Friday" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Monday" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Saturday" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Sunday" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Thursday" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Tuesday" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Wednesday" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WeekActuality" nillable="true" type="tns:WeekActuality" />
+  <xs:complexType name="ArrayOfRoute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Route" nillable="true" type="tns:Route" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoute" nillable="true" type="tns:ArrayOfRoute" />
+  <xs:complexType name="Route">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Actuality" nillable="true" type="tns:WeekActuality" />
+      <xs:element minOccurs="0" name="IsFri" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMon" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSat" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSun" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsThu" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsToHome" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsTue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsWed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PathID" type="xs:int" />
+      <xs:element minOccurs="0" name="Points" nillable="true" type="tns:ArrayOfOnMapPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Route" nillable="true" type="tns:Route" />
+  <xs:complexType name="ArrayOfOnMapPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OnMapPoint" nillable="true" type="tns:OnMapPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOnMapPoint" nillable="true" type="tns:ArrayOfOnMapPoint" />
+  <xs:complexType name="OnMapPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsHome" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Longtitude" type="xs:double" />
+      <xs:element minOccurs="0" name="PointID" type="xs:int" />
+      <xs:element minOccurs="0" name="UID" type="xs:int" />
+      <xs:element minOccurs="0" name="Way" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OnMapPoint" nillable="true" type="tns:OnMapPoint" />
+  <xs:complexType name="UserCar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" name="ComfortOptions" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GovNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelID" type="xs:int" />
+      <xs:element minOccurs="0" name="Places" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserCar" nillable="true" type="tns:UserCar" />
+  <xs:complexType name="UserCompanion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comfort" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GovNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Payment" type="xs:int" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Places" type="xs:int" />
+      <xs:element minOccurs="0" name="Rating" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserCompanion" nillable="true" type="tns:UserCompanion" />
+  <xs:complexType name="WeeklySchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Friday" nillable="true" type="tns:DaySchedule" />
+      <xs:element minOccurs="0" name="Monday" nillable="true" type="tns:DaySchedule" />
+      <xs:element minOccurs="0" name="Saturday" nillable="true" type="tns:DaySchedule" />
+      <xs:element minOccurs="0" name="Sunday" nillable="true" type="tns:DaySchedule" />
+      <xs:element minOccurs="0" name="Thursday" nillable="true" type="tns:DaySchedule" />
+      <xs:element minOccurs="0" name="Tuesday" nillable="true" type="tns:DaySchedule" />
+      <xs:element minOccurs="0" name="Wednesday" nillable="true" type="tns:DaySchedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WeeklySchedule" nillable="true" type="tns:WeeklySchedule" />
+  <xs:complexType name="DaySchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ToHome" type="ser:duration" />
+      <xs:element minOccurs="0" name="ToWork" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DaySchedule" nillable="true" type="tns:DaySchedule" />
+  <xs:complexType name="ArrayOfConversation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Conversation" nillable="true" type="tns:Conversation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConversation" nillable="true" type="tns:ArrayOfConversation" />
+  <xs:complexType name="Conversation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserConversation" nillable="true" type="tns:ArrayOfUserMessage" />
+      <xs:element minOccurs="0" name="With" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WithUID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Conversation" nillable="true" type="tns:Conversation" />
+  <xs:complexType name="ArrayOfUserMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserMessage" nillable="true" type="tns:UserMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserMessage" nillable="true" type="tns:ArrayOfUserMessage" />
+  <xs:complexType name="UserMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromUID" type="xs:int" />
+      <xs:element minOccurs="0" name="MessageText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SysCode" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeStamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToUID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserMessage" nillable="true" type="tns:UserMessage" />
+  <xs:complexType name="ArrayOfTripOffer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TripOffer" nillable="true" type="tns:TripOffer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTripOffer" nillable="true" type="tns:ArrayOfTripOffer" />
+  <xs:complexType name="TripOffer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Companion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanionID" type="xs:int" />
+      <xs:element minOccurs="0" name="Confirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCanBeAccepted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRepeat" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsToHome" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Longtitude" type="xs:double" />
+      <xs:element minOccurs="0" name="OfferID" type="xs:int" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TripOffer" nillable="true" type="tns:TripOffer" />
+  <xs:complexType name="ArrayOfAppFeedback">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppFeedback" nillable="true" type="tns:AppFeedback" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppFeedback" nillable="true" type="tns:ArrayOfAppFeedback" />
+  <xs:complexType name="AppFeedback">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeveloperAnswer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FeedbackText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Stars" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="UID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppFeedback" nillable="true" type="tns:AppFeedback" />
+</xs:schema>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="1"
+    android:rowCount="3">
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/ProfileGrid"
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="First name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:inputType="textPersonName"
+                android:id="@+id/FirstName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="200dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Last name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:inputType="textPersonName"
+                android:id="@+id/LastName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="200dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Phone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:inputType="phone"
+                android:id="@+id/PhoneBox"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="150dp"
+                android:hint="88009999999"
+                android:phoneNumber="true" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:id="@+id/sx"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/role"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content" />
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/roleswitcher"
+                android:textOn="@string/driver"
+                android:checked="true"
+                android:textOff="@string/walker" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/SetCar"
+            android:text="@string/setcar"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+        <TextView
+            android:id="@+id/SystemOut"
+            android:gravity="right"
+            android:textColor="#DC143C"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/SetHome"
+        android:layout_gravity="end"
+        android:layout_marginRight="10dp"
+        android:text="@string/sethome" />
+    <ProgressBar
+        android:id="@+id/ProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_gravity="fill_horizontal"
+        android:indeterminate="false" />
+</GridLayout>

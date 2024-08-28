@@ -1,0 +1,20 @@
+<div class='col-sm-2 sidenav'>
+    <subnav-menu></subnav-menu>
+</div>
+<div class='col-sm-8'>
+    <h1>Statistics</h1>
+    <p *ngIf="!statistics"><em>Loading...</em></p>
+    <div *ngIf="statistics">
+        <p>Registered users: {{ statistics.Users }}</p>
+        <p>
+            Drivers: {{ statistics.Drivers }}
+        </p>
+        <p>
+            Passengers:  {{ statistics.Passengers }}
+        </p>
+        <p>
+            Registered organizations: {{ statistics.Organizations }}
+        </p> 
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CCS.Confirmation">
+    <ContentPage.Content>
+        <Grid x:Name="ConfirmationGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label x:Uid="ConfirmationLabel" Text="Confirmation" HorizontalOptions="Center"  VerticalOptions="Center" FontSize="Large" />
+            <StackLayout  Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout x:Name="InputPasswordField"  Orientation="Horizontal">
+                    <Label x:Uid="GreetingInputPassword"  Text="Password" Margin="5" FontSize="Medium"/>
+                    <Entry x:Name="PasswordFromMail"  VerticalOptions="Center" IsPassword="True" WidthRequest="205"/>
+                </StackLayout>
+                <Label x:Uid="DescriptionOfPasswordConfirmation" Text="The one-time password was sent to email" />
+                <Label  Text="{Binding Path=OutPut, Mode=TwoWay}" HorizontalOptions="End"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <Button x:Name="BackToRegistartionGrid" x:Uid="Back"  Text="Back"  Margin="10" Clicked="BackToRegistration"  />
+                <Button x:Name="ConfirmPassword" x:Uid="Continue"  Text="Continue" Margin="10" Clicked="ConfirmRegistration" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

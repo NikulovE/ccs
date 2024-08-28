@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CCS.RoleSelector">
+    <ContentPage.Content>
+        <Grid x:Name="SelectDriverModeGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label x:Uid="Role" Text="Select the role"  HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large"/>
+            <StackLayout   Grid.Row="1" VerticalOptions="Center" >
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button   Clicked="SelectedDriverModePassenger"  Text="Passenger" FontSize="Large"/>
+                    <Button  Clicked="SelectedDriverModeDriver"  Text="Driver" FontSize="Large"/>
+                </StackLayout>
+                <Label Text="{Binding OutPut, Mode=TwoWay}" HorizontalOptions="Center" TextColor="Red" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

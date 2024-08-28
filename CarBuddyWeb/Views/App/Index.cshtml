@@ -1,0 +1,100 @@
+﻿@model AppWeb.Models.LaunchControl
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UniCarBuddy</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", null, "Home")</li>
+                    <li>@Html.ActionLink("Find", null, "Find")</li>
+                    <li><input type="button" id="btnShowLocations" value="Show All Locations" /></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @*@if (@ViewBag.LoginedUser == false)
+                    {
+                        <li>@Html.ActionLink("Login", null, "Login")</li>
+                    }*@
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row content">
+            @*<div class="col-sm-3">
+            </div>*@
+
+            <div class="jumbotron" id="myMap" style="position:absolute; top: 54px; left: 0px; right:0px; bottom:0px;">
+                
+
+                @*<div id="myMap" style="position:relative; width:600px; height:600px;"></div>*@
+
+                <script>
+                var map = null;
+
+                function LoadMap() {
+                    map = new Microsoft.Maps.Map('#myMap', { credentials: "Bing map key" });
+                }
+
+                $('#btnShowLocations').click(function () {
+                    var url = "/App/GetLocations";
+                    $.getJSON(url, null, function (data) {
+                        var pins = [];
+                         $.each(data, function (index, LocationData) {
+                             var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(LocationData.latitude, LocationData.longitude), { title: 'Microsoft',subTitle: 'City Center'});
+                             pins.push(pushpin);
+                             Microsoft.Maps.Events.addHandler(pushpin, 'click', function () {
+                                 alert(LocationData.latitude);
+                             });
+                         });
+                         
+                        map.entities.push(pins);
+                        map.setView({ zoom: 4, center: new Microsoft.Maps.Location(23.505353, 78.485292) });
+                    });
+                });
+
+                function displayInfobox(e) {
+                    //alert(e.LocationData);
+                    e.visible = false;
+                    e.setOptions({ visible: false });
+                }
+
+                </script>
+                <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>
+               
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-left navbar-fixed-bottom">
+        <p>Evgeniy Nikulov</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 25.375" name="CarBuddyData">
+  <DataContextMoniker Name="/CarBuddyDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8102bf76-bde2-46cd-b659-6a202fd546a2" absoluteBounds="3.5, 10.625, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/CarBuddyDataContext/Company" />
+      <nestedChildShapes>
+        <elementListCompartment Id="42df742c-1345-42de-a0db-3b7ce0fbe4e3" absoluteBounds="3.515, 11.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0af6b14c-60c0-4620-8533-e90d35ea9529" absoluteBounds="3.5, 4, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/CarBuddyDataContext/CurrentPosition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6b8209a4-8923-45e8-85ac-4cc4fdf69315" absoluteBounds="3.515, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="59d9b7e4-4ef2-4fb6-a3ef-945381897ff6" absoluteBounds="6.75, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/CarBuddyDataContext/FeedBack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01df0634-cac8-4a8e-b408-8ffc8cdc6057" absoluteBounds="6.765, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ba68b0e-0dd3-486a-8617-06abf0346d28" absoluteBounds="3.5, 6.125, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/CarBuddyDataContext/Home" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd56915e-2e76-40a7-92c2-888472e24912" absoluteBounds="3.515, 6.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3aca9b9e-14ec-4c77-9265-2f916b74e0ac" absoluteBounds="6.75, 3.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/CarBuddyDataContext/Invitation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="caba8e3e-1675-447c-93f0-d2a3c4971bcd" absoluteBounds="6.765, 4.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a1a542b1-d1dc-45d6-8185-61b92229898d" absoluteBounds="6.75, 6.875, 2, 1.9631982421875014">
+      <DataClassMoniker Name="/CarBuddyDataContext/Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81a61e63-2067-48fd-8456-ed865a68962f" absoluteBounds="6.765, 7.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4f8dc474-1ae9-472e-98a9-b044d539a48a" absoluteBounds="3.5, 8.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CarBuddyDataContext/Office" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88a4dcb8-39d6-4778-8b64-bc1674377cdb" absoluteBounds="3.515, 8.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="02582e70-3ff5-4e8d-8f3d-83bfea558bec" absoluteBounds="3.5, 19.625, 2, 2.3478011067708309">
+      <DataClassMoniker Name="/CarBuddyDataContext/Registration" />
+      <nestedChildShapes>
+        <elementListCompartment Id="006b8137-c6e2-42ea-b41e-9fe21dca0467" absoluteBounds="3.515, 20.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="258e066e-6179-4b7c-8ecc-e9bb5802db14" absoluteBounds="6.5, 11.125, 2, 2.9247054036458344">
+      <DataClassMoniker Name="/CarBuddyDataContext/Route" />
+      <nestedChildShapes>
+        <elementListCompartment Id="07e30486-5418-4368-ab16-1106678809fa" absoluteBounds="6.515, 11.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9fb040fc-63f1-45b8-a2cf-efd79a67cff9" absoluteBounds="3.5, 22.625, 2, 2.5401025390625023">
+      <DataClassMoniker Name="/CarBuddyDataContext/Schedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0cdb5248-78c2-44d6-b20d-877e36d2cd62" absoluteBounds="3.515, 23.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="213d2880-c722-467a-83dc-851a2ba68690" absoluteBounds="9.75, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/CarBuddyDataContext/Trip" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c2d118f0-94e6-41be-adc0-8ab2408dcfce" absoluteBounds="9.765, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="adbb19c6-dca1-4c99-b14b-53fae3045177" absoluteBounds="0.75, 13.125, 2, 2.9247054036458344">
+      <DataClassMoniker Name="/CarBuddyDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fbd362f8-7462-4d0f-b952-579a0077358f" absoluteBounds="0.765, 13.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e51598d4-2688-4094-9324-2905c3261211" absoluteBounds="3.75, 0.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/CarBuddyDataContext/Path" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f897f965-1256-4fb2-a472-3d748aafa698" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c783f100-4fbb-44f6-b450-7e16533fe6ef" absoluteBounds="3.5, 16.25, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/CarBuddyDataContext/Car" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c954fb27-b89e-4869-9ea6-19259b63de3f" absoluteBounds="3.515, 16.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9224eef9-e481-403b-90d2-2991acb4e0ff" absoluteBounds="6.25, 15.75, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/CarBuddyDataContext/CarBrand" />
+      <nestedChildShapes>
+        <elementListCompartment Id="61571533-6d7f-4f96-80e2-9424546a9003" absoluteBounds="6.265, 16.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2160c7e5-339b-4285-a8c8-2325223b735f" absoluteBounds="6.25, 17.625, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/CarBuddyDataContext/CarModel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6c31b72a-6923-4cdf-9881-786654d66ef6" absoluteBounds="6.265, 18.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 13.125); (1.75 : 11.5104484049479); (2.19791916666667 : 11.5104484049479 : JumpStart); (2.36458583333333 : 11.5104484049479 : JumpEnd); (2.46354541666667 : 11.5104484049479 : JumpStart); (2.63021208333333 : 11.5104484049479 : JumpEnd); (3.5 : 11.5104484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/User/User_Company" />
+      <nodes>
+        <classShapeMoniker Id="adbb19c6-dca1-4c99-b14b-53fae3045177" />
+        <classShapeMoniker Id="8102bf76-bde2-46cd-b659-6a202fd546a2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 13.125); (2.2812525 : 4.69314697265625); (3.5 : 4.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/User/User_CurrentPosition" />
+      <nodes>
+        <classShapeMoniker Id="adbb19c6-dca1-4c99-b14b-53fae3045177" />
+        <classShapeMoniker Id="0af6b14c-60c0-4620-8533-e90d35ea9529" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.2187475 : 13.125); (1.2187475 : 6.81814697265625); (2.19791916666667 : 6.81814697265625 : JumpStart); (2.36458583333333 : 6.81814697265625 : JumpEnd); (3.5 : 6.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/User/User_Home" />
+      <nodes>
+        <classShapeMoniker Id="adbb19c6-dca1-4c99-b14b-53fae3045177" />
+        <classShapeMoniker Id="6ba68b0e-0dd3-486a-8617-06abf0346d28" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.54687875 : 13.125); (2.54687875 : 9.16429768880208); (3.5 : 9.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/User/User_Office" />
+      <nodes>
+        <classShapeMoniker Id="adbb19c6-dca1-4c99-b14b-53fae3045177" />
+        <classShapeMoniker Id="4f8dc474-1ae9-472e-98a9-b044d539a48a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 16.0497054036458); (1.75 : 20.7989005533854); (2.19791916666667 : 20.7989005533854 : JumpStart); (2.36458583333333 : 20.7989005533854 : JumpEnd); (3.5 : 20.7989005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/User/User_Registration" />
+      <nodes>
+        <classShapeMoniker Id="adbb19c6-dca1-4c99-b14b-53fae3045177" />
+        <classShapeMoniker Id="02582e70-3ff5-4e8d-8f3d-83bfea558bec" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 13.40625); (6.5 : 13.40625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/User/User_Route" />
+      <nodes>
+        <classShapeMoniker Id="adbb19c6-dca1-4c99-b14b-53fae3045177" />
+        <classShapeMoniker Id="258e066e-6179-4b7c-8ecc-e9bb5802db14" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 16.0497054036458); (2.2812525 : 23.8950512695313); (3.5 : 23.8950512695313)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/User/User_Schedule" />
+      <nodes>
+        <classShapeMoniker Id="adbb19c6-dca1-4c99-b14b-53fae3045177" />
+        <classShapeMoniker Id="9fb040fc-63f1-45b8-a2cf-efd79a67cff9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 0.78125); (6.59375 : 0.78125); (6.59375 : 11.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/Path/Path_Route" />
+      <nodes>
+        <classShapeMoniker Id="e51598d4-2688-4094-9324-2905c3261211" />
+        <classShapeMoniker Id="258e066e-6179-4b7c-8ecc-e9bb5802db14" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.2187475 : 16.0497054036458); (1.2187475 : 17.2315991210938); (1.66666666666667 : 17.2315991210938 : JumpStart); (1.83333333333333 : 17.2315991210938 : JumpEnd); (2.19791916666667 : 17.2315991210938 : JumpStart); (2.36458583333333 : 17.2315991210938 : JumpEnd); (3.5 : 17.2315991210938)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/User/User_Car" />
+      <nodes>
+        <classShapeMoniker Id="adbb19c6-dca1-4c99-b14b-53fae3045177" />
+        <classShapeMoniker Id="c783f100-4fbb-44f6-b450-7e16533fe6ef" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 16.5969962565104); (6.25 : 16.5969962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/Car/Car_CarBrand" />
+      <nodes>
+        <classShapeMoniker Id="c783f100-4fbb-44f6-b450-7e16533fe6ef" />
+        <classShapeMoniker Id="9224eef9-e481-403b-90d2-2991acb4e0ff" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 17.9190991210938); (6.25 : 17.9190991210938)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/Car/Car_CarModel" />
+      <nodes>
+        <classShapeMoniker Id="c783f100-4fbb-44f6-b450-7e16533fe6ef" />
+        <classShapeMoniker Id="2160c7e5-339b-4285-a8c8-2325223b735f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="00dd25f1-ae42-4d3e-8d4c-8310a62604a2" absoluteBounds="4.375, 13.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/CarBuddyDataContext/Session" />
+      <nestedChildShapes>
+        <elementListCompartment Id="036e7bb0-4bdf-4f0a-ba84-f9b1d09240f4" absoluteBounds="4.39, 14.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 14.6354484049479); (4.375 : 14.6354484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CarBuddyDataContext/User/User_Session" />
+      <nodes>
+        <classShapeMoniker Id="adbb19c6-dca1-4c99-b14b-53fae3045177" />
+        <classShapeMoniker Id="00dd25f1-ae42-4d3e-8d4c-8310a62604a2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

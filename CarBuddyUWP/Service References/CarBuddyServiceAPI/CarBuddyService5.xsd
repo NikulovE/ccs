@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+  <xs:element name="StartRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="StartRegistrationResult" nillable="true" type="q1:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UID" type="xs:int" />
+        <xs:element minOccurs="0" name="answer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ConfirmRegistrationResult" nillable="true" type="q2:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestoreRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestoreRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RestoreRegistrationResult" nillable="true" type="q3:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestoreSessionKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UID" type="xs:int" />
+        <xs:element minOccurs="0" name="ClientSign" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestoreSessionKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RestoreSessionKeyResult" nillable="true" type="q4:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="EncryptedSessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadProfileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LoadProfileResult" nillable="true" type="q5:TupleOfbooleanUserProfileu77tht3H" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Logon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="EncryptedSessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LogonResult" nillable="true" type="q6:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CarBuddyAPI" minOccurs="0" name="UserProfile" nillable="true" type="q7:UserProfile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProfileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="UpdateProfileResult" nillable="true" type="q8:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeDriverMode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isDriver" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeDriverModeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ChangeDriverModeResult" nillable="true" type="q9:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LoadGroupsResult" nillable="true" type="q10:TupleOfbooleanArrayOfUserGroupu77tht3H" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateInviteToGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateInviteToGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="GenerateInviteToGroupResult" nillable="true" type="q11:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="CreateGroupResult" nillable="true" type="q12:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JoinGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+        <xs:element minOccurs="0" name="Answer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JoinGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="JoinGroupResult" nillable="true" type="q13:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeaveGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+        <xs:element minOccurs="0" name="Answer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeaveGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LeaveGroupResult" nillable="true" type="q14:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadOrganizations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadOrganizationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LoadOrganizationsResult" nillable="true" type="q15:TupleOfbooleanArrayOfUserGroupu77tht3H" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadOffices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="longtitude" type="xs:double" />
+        <xs:element minOccurs="0" name="latitude" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadOfficesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LoadOfficesResult" nillable="true" type="q16:TupleOfbooleanArrayOfOfficeOnMapu77tht3H" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeVisibility">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+        <xs:element minOccurs="0" name="isVisible" type="xs:boolean" />
+        <xs:element minOccurs="0" name="isOrganization" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeVisibilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ChangeVisibilityResult" nillable="true" type="q17:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartOrganizationRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartOrganizationRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="StartOrganizationRegistrationResult" nillable="true" type="q18:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmOrganizationRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="encyptedConfirmationKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmOrganizationRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ConfirmOrganizationRegistrationResult" nillable="true" type="q19:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InternalOrganizationKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Organization" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RSAPublic" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InternalOrganizationKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="InternalOrganizationKeyResult" nillable="true" type="q20:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartJoinToOrganization">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartJoinToOrganizationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="StartJoinToOrganizationResult" nillable="true" type="q21:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmJoinOrganization">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EncryptedConfirmationKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmJoinOrganizationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ConfirmJoinOrganizationResult" nillable="true" type="q22:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeaveOrganization">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OrgID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeaveOrganizationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LeaveOrganizationResult" nillable="true" type="q23:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOffice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TeamID" type="xs:int" />
+        <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="longtitude" type="xs:double" />
+        <xs:element minOccurs="0" name="latitude" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOfficeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="CreateOfficeResult" nillable="true" type="q24:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BingMapsAPIKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BingMapsAPIKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="BingMapsAPIKeyResult" nillable="true" type="q25:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetHome">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="longtitude" type="xs:double" />
+        <xs:element minOccurs="0" name="latitude" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetHomeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="SetHomeResult" nillable="true" type="q26:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRoutePoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="longtitude" type="xs:double" />
+        <xs:element minOccurs="0" name="latitude" type="xs:double" />
+        <xs:element minOccurs="0" name="Way" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PathID" type="xs:int" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/CarBuddyAPI" minOccurs="0" name="Actuality" nillable="true" type="q27:WeekActuality" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRoutePointResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="SaveRoutePointResult" nillable="true" type="q28:TupleOfbooleanint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeRoutePoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RouteID" type="xs:int" />
+        <xs:element minOccurs="0" name="SysCode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeRoutePointResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ChangeRoutePointResult" nillable="true" type="q29:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePath">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PathID" type="xs:int" />
+        <xs:element minOccurs="0" name="SysCode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePathResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ChangePathResult" nillable="true" type="q30:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadRoutePoints">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadRoutePointsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LoadRoutePointsResult" nillable="true" type="q31:TupleOfbooleanArrayOfRouteu77tht3H" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadHome">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadHomeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LoadHomeResult" nillable="true" type="q32:TupleOfbooleandoubledouble" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindingCompanions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="longtitude" type="xs:double" />
+        <xs:element minOccurs="0" name="latitude" type="xs:double" />
+        <xs:element minOccurs="0" name="Way" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindingCompanionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="FindingCompanionsResult" nillable="true" type="q33:TupleOfbooleanArrayOfOnMapPointu77tht3H" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewComplaint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SysCode" type="xs:int" />
+        <xs:element minOccurs="0" name="UniqID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewComplaintResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="NewComplaintResult" nillable="true" type="q34:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarBrands">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarBrandsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="GetCarBrandsResult" nillable="true" type="q35:TupleOfbooleanArrayOfstringty7Ep6D1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarModels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CarBrandID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarModelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="GetCarModelsResult" nillable="true" type="q36:TupleOfbooleanArrayOfstringty7Ep6D1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadUserCar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadUserCarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LoadUserCarResult" nillable="true" type="q37:TupleOfbooleanUserCaru77tht3H" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/CarBuddyAPI" minOccurs="0" name="UserCar" nillable="true" type="q38:UserCar" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="UpdateCarResult" nillable="true" type="q39:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SysId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="GetUserInfoResult" nillable="true" type="q40:TupleOfbooleanUserCompanionu77tht3H" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadSchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadScheduleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LoadScheduleResult" nillable="true" type="q41:TupleOfbooleanWeeklyScheduleu77tht3H" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/CarBuddyAPI" minOccurs="0" name="UserSchedule" nillable="true" type="q42:WeeklySchedule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateScheduleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="UpdateScheduleResult" nillable="true" type="q43:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="longtitude" type="xs:double" />
+        <xs:element minOccurs="0" name="latitude" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="UpdateLocationResult" nillable="true" type="q44:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadPreviousLocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadPreviousLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LoadPreviousLocationResult" nillable="true" type="q45:TupleOfbooleanTupleOfdoubledoubleU6ho3Bhd" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LoadMessagesResult" nillable="true" type="q46:TupleOfbooleanArrayOfConversationu77tht3H" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OpponentUID" type="xs:int" />
+        <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="SendMessageResult" nillable="true" type="q47:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadTrips">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CurrentUserTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadTripsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LoadTripsResult" nillable="true" type="q48:TupleOfbooleanArrayOfTripOfferu77tht3H" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendTripOffer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ToUID" type="xs:int" />
+        <xs:element minOccurs="0" name="RouteID" type="xs:int" />
+        <xs:element minOccurs="0" name="isToHome" type="xs:boolean" />
+        <xs:element minOccurs="0" name="atTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendTripOfferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="SendTripOfferResult" nillable="true" type="q49:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcceptOffer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OfferID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcceptOfferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="AcceptOfferResult" nillable="true" type="q50:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejectOffer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OfferID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejectOfferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RejectOfferResult" nillable="true" type="q51:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadAppFeedbacks">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadAppFeedbacksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/CarBuddyAPI" minOccurs="0" name="LoadAppFeedbacksResult" nillable="true" type="q52:ArrayOfAppFeedback" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveFeedBack">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Stars" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="Feedback" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveFeedBackResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="SaveFeedBackResult" nillable="true" type="q53:TupleOfbooleanstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

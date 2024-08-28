@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="ProfileSymbol">\uE2AF</string>
+  <string name="MessagesSymbol">\uE715</string>
+  <string name="ScheduleSymbol">\uEE93</string>
+  <string name="OrganizationSymbol">\uE821</string>
+  <string name="SearchCompanionSymbol">\uE816</string>
+  <string name="StartSearchCompanions">Start search companions</string>
+  <string name="SearchMode">Search companions to work or to home</string>
+  <string name="TripsSymbol">\uEA5E</string>
+  <string name="TripsSymbolBack">\uE811</string>
+  <string name="HomeSymbol">\uE80F</string>
+  <string name="GPSSymbol">\uE81D</string>
+  <string name="UWorkEmail">Your work email:</string>
+  <string name="SendKey">Send key</string>
+  <string name="Continue">Continue</string>
+  <string name="Confirm">Join</string>
+  <string name="Out">Close</string>
+  <string name="ToHome">to home</string>
+  <string name="ToWork">to work</string>
+  <string name="Joined">You have successfully joined</string>
+  <string name="Join">Join</string>
+  <string name="KeyFromWorkBox">input key from email:</string>
+  <string name="RegisterOrganization">Register organization</string>
+  <string name="WorkBoxWorries">this e-mail won\&apos;t be stored and will be only used once to confirm that you are an employee of the organization. You can use Microsoft\&apos;s or Google\&apos;s mailboxes as public organization</string>
+  <string name="RPSendInvite">Click to send invite</string>
+  <string name="brand">Brand</string>
+  <string name="model">Model</string>
+  <string name="color">Color</string>
+  <string name="platenum">Plate number</string>
+  <string name="places">Passengers places</string>
+  <string name="walker">Walker</string>
+  <string name="driver">Driver</string>
+  <string name="role">Current role</string>
+  <string name="sethome">Set home</string>
+  <string name="setcar">Car</string>
+  <string name="currentoffice">Current office:</string>
+
+
+
+
+
+</resources>

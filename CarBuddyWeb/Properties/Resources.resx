@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RegistrationLabel" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Contact number</value>
+    <comment>will be use to communication with you</comment>
+  </data>
+  <data name="GreetingInputEmail" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="ToolTipForEmail" xml:space="preserve">
+    <value>Use your personal mailbox. Password will be sent to this email</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="FillingProfileLabel" xml:space="preserve">
+    <value>Your profile</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="x10001" xml:space="preserve">
+    <value>email with key not sent</value>
+  </data>
+  <data name="x10002" xml:space="preserve">
+    <value>Internal error, can not generate entries</value>
+  </data>
+  <data name="x10003" xml:space="preserve">
+    <value>email already used</value>
+  </data>
+  <data name="x50001" xml:space="preserve">
+    <value>can not send registration information to mentioned email</value>
+  </data>
+  <data name="x11001" xml:space="preserve">
+    <value>UID already created, please try to restore access</value>
+  </data>
+  <data name="x11002" xml:space="preserve">
+    <value>can not generate user session key</value>
+  </data>
+  <data name="x11003" xml:space="preserve">
+    <value>answer is wrong, please try again</value>
+  </data>
+  <data name="x11004" xml:space="preserve">
+    <value>can not find user password</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="ConfirmationLabel" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="GreetingInputPassword" xml:space="preserve">
+    <value>Password</value>
+    <comment>Password has been send to your email</comment>
+  </data>
+  <data name="ToolTipForPassword" xml:space="preserve">
+    <value>check your email box and find email with password, then put it</value>
+  </data>
+  <data name="x50002" xml:space="preserve">
+    <value>can not confirm your password</value>
+  </data>
+  <data name="x50003" xml:space="preserve">
+    <value>wrong password</value>
+  </data>
+  <data name="x50004" xml:space="preserve">
+    <value>wrong password</value>
+    <comment>can not prepare answer for server</comment>
+  </data>
+  <data name="Driver" xml:space="preserve">
+    <value>Driver</value>
+  </data>
+  <data name="PhoneToolTip" xml:space="preserve">
+    <value>This number will be used for the future contacts with you</value>
+  </data>
+  <data name="Walker" xml:space="preserve">
+    <value>Passenger</value>
+  </data>
+  <data name="x10005" xml:space="preserve">
+    <value>email is not valid</value>
+  </data>
+  <data name="x50005" xml:space="preserve">
+    <value>First name is required</value>
+  </data>
+  <data name="x50006" xml:space="preserve">
+    <value>Last name is required</value>
+  </data>
+  <data name="x12001" xml:space="preserve">
+    <value>Sign of your messages is not correct</value>
+  </data>
+  <data name="x12002" xml:space="preserve">
+    <value>Users profile contact information has been updated</value>
+  </data>
+  <data name="x12003" xml:space="preserve">
+    <value>Users profile contact information has not been updated</value>
+  </data>
+  <data name="x50007" xml:space="preserve">
+    <value>Can not update your profile</value>
+  </data>
+  <data name="x12004" xml:space="preserve">
+    <value>Inputed values are so long</value>
+  </data>
+  <data name="x13001" xml:space="preserve">
+    <value>User role has been changed</value>
+  </data>
+  <data name="x13002" xml:space="preserve">
+    <value>User role has not been changed</value>
+  </data>
+  <data name="x50000" xml:space="preserve">
+    <value>Server error</value>
+  </data>
+  <data name="x50008" xml:space="preserve">
+    <value>Wrong phone format. Please use only digit.</value>
+  </data>
+  <data name="RestoreAccess" xml:space="preserve">
+    <value>SignOn</value>
+  </data>
+  <data name="x10006" xml:space="preserve">
+    <value>can not restore access</value>
+  </data>
+  <data name="amends" xml:space="preserve">
+    <value>Amends</value>
+    <comment>Amends, pay for a car </comment>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="FreePay" xml:space="preserve">
+    <value>free of charge</value>
+    <comment>free pay</comment>
+  </data>
+  <data name="friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="monday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="NotDecided" xml:space="preserve">
+    <value>not decided</value>
+  </data>
+  <data name="Pay" xml:space="preserve">
+    <value>with pay</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Route" xml:space="preserve">
+    <value>Route</value>
+  </data>
+  <data name="Routes" xml:space="preserve">
+    <value>Routes</value>
+  </data>
+  <data name="saturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="sunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="thursday" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="tuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="wednesday" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="trip" xml:space="preserve">
+    <value>Trips</value>
+  </data>
+  <data name="CurrentPosition" xml:space="preserve">
+    <value>Current Position</value>
+    <comment>GPS</comment>
+  </data>
+  <data name="x50009" xml:space="preserve">
+    <value>can not save your profile</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Confirmed" xml:space="preserve">
+    <value>Confirmed</value>
+  </data>
+  <data name="ConfirmKeyButton" xml:space="preserve">
+    <value>Confirm key</value>
+    <comment>Crypt key from email</comment>
+  </data>
+  <data name="ConfrimKey" xml:space="preserve">
+    <value>input key from email</value>
+    <comment>Crypt key from email</comment>
+  </data>
+  <data name="CreateCompany" xml:space="preserve">
+    <value>Register organization</value>
+  </data>
+  <data name="CreateTeam" xml:space="preserve">
+    <value>Create a team</value>
+  </data>
+  <data name="CreateTeamIntro" xml:space="preserve">
+    <value>Your work email</value>
+  </data>
+  <data name="Everyone" xml:space="preserve">
+    <value>Everyone</value>
+    <comment>Visibility for Everyone</comment>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>hide me</value>
+    <comment>don`t show me</comment>
+  </data>
+  <data name="JoinOrganization" xml:space="preserve">
+    <value>Join organization</value>
+  </data>
+  <data name="JoinTeam" xml:space="preserve">
+    <value>Join team</value>
+  </data>
+  <data name="MyCompany" xml:space="preserve">
+    <value>My company</value>
+  </data>
+  <data name="MyTeam" xml:space="preserve">
+    <value>My team</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>Your request is in pending approval</value>
+  </data>
+  <data name="PrefferedName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="SendKey" xml:space="preserve">
+    <value>Send key</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>show me</value>
+  </data>
+  <data name="SplitCompany" xml:space="preserve">
+    <value>SplitCompany</value>
+  </data>
+  <data name="SubmitCreation" xml:space="preserve">
+    <value>Submit creation</value>
+  </data>
+  <data name="Teams" xml:space="preserve">
+    <value>Teams</value>
+  </data>
+  <data name="VisiblityList" xml:space="preserve">
+    <value>Who can see my account:</value>
+  </data>
+  <data name="x50010" xml:space="preserve">
+    <value>Internal error. Check internet connection</value>
+  </data>
+  <data name="YourTeams" xml:space="preserve">
+    <value>Your teams</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="x14000" xml:space="preserve">
+    <value>Organization is already registered or in pending approval</value>
+  </data>
+  <data name="x14001" xml:space="preserve">
+    <value>The key was sent to email</value>
+  </data>
+  <data name="x14002" xml:space="preserve">
+    <value>can not register a new company</value>
+  </data>
+  <data name="x14003" xml:space="preserve">
+    <value>Successfully registered. In pending appoval</value>
+  </data>
+  <data name="ToolTipCompanyEmail" xml:space="preserve">
+    <value>email will not be stored</value>
+  </data>
+  <data name="CreateOffice" xml:space="preserve">
+    <value>Create office</value>
+  </data>
+  <data name="GenerateInvite" xml:space="preserve">
+    <value>Generate invite code</value>
+    <comment>Invite for your friend, parent, etc</comment>
+  </data>
+  <data name="InputInvite" xml:space="preserve">
+    <value>input your invite code</value>
+    <comment>invite- crypt key from mail</comment>
+  </data>
+  <data name="Join" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="MyOffice" xml:space="preserve">
+    <value>My office:</value>
+  </data>
+  <data name="MyOrganizations" xml:space="preserve">
+    <value>My organizations:</value>
+  </data>
+  <data name="Organizations" xml:space="preserve">
+    <value>Organizations</value>
+  </data>
+  <data name="SplitCompanies" xml:space="preserve">
+    <value>Split companies</value>
+  </data>
+  <data name="x14004" xml:space="preserve">
+    <value>visibility has not been changed</value>
+  </data>
+  <data name="CompleteJoinCompany" xml:space="preserve">
+    <value>Submit join company</value>
+  </data>
+  <data name="x14005" xml:space="preserve">
+    <value>Organization is not registered</value>
+  </data>
+  <data name="x14006" xml:space="preserve">
+    <value>you are already member of this organization</value>
+  </data>
+  <data name="x14007" xml:space="preserve">
+    <value>can not generate password for you</value>
+  </data>
+  <data name="x14008" xml:space="preserve">
+    <value>Successfully joined</value>
+  </data>
+  <data name="SetOffice" xml:space="preserve">
+    <value>Set office on map</value>
+  </data>
+  <data name="x50011" xml:space="preserve">
+    <value>Firstly input prefered name of office</value>
+  </data>
+  <data name="x14009" xml:space="preserve">
+    <value>Office with mentioned name is already created</value>
+  </data>
+  <data name="x14010" xml:space="preserve">
+    <value>Successfully created</value>
+  </data>
+  <data name="x14011" xml:space="preserve">
+    <value>you are not member of organization</value>
+  </data>
+  <data name="CreateOfficeToolTip" xml:space="preserve">
+    <value>To create an office please choose organization</value>
+  </data>
+  <data name="x15000" xml:space="preserve">
+    <value>home has been set</value>
+  </data>
+  <data name="x15001" xml:space="preserve">
+    <value>home has not been set</value>
+  </data>
+  <data name="PointCombined" xml:space="preserve">
+    <value>from work/to home</value>
+  </data>
+  <data name="PointToHome" xml:space="preserve">
+    <value>to home</value>
+  </data>
+  <data name="PointToWork" xml:space="preserve">
+    <value>to work</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Complete</value>
+    <comment>Complete route points writing</comment>
+  </data>
+  <data name="x16001" xml:space="preserve">
+    <value>route point saved</value>
+  </data>
+  <data name="x16002" xml:space="preserve">
+    <value>route point not saved</value>
+  </data>
+  <data name="ChangeRole" xml:space="preserve">
+    <value>click to change role</value>
+  </data>
+  <data name="DescriptionOfFillingProfile" xml:space="preserve">
+    <value>your personal information will be securely stored</value>
+  </data>
+  <data name="DescriptionOfPasswordConfirmation" xml:space="preserve">
+    <value>Password was sent to email</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Select the role</value>
+  </data>
+  <data name="x17000" xml:space="preserve">
+    <value>can not change route point state</value>
+  </data>
+  <data name="Actuality" xml:space="preserve">
+    <value>Actuality</value>
+  </data>
+  <data name="ChangeWay" xml:space="preserve">
+    <value>Change direction</value>
+  </data>
+  <data name="Common" xml:space="preserve">
+    <value>common</value>
+    <comment>Route point</comment>
+  </data>
+  <data name="ComplaintWrongOffice" xml:space="preserve">
+    <value>Wrong office!</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="ToHome" xml:space="preserve">
+    <value>to home</value>
+    <comment>Route point</comment>
+  </data>
+  <data name="ToolTipCarTrip" xml:space="preserve">
+    <value>Details of your car and trips</value>
+  </data>
+  <data name="ToolTipFindCompanions" xml:space="preserve">
+    <value>Find companions for a future trip</value>
+  </data>
+  <data name="ToolTipGroups" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="ToolTipHome" xml:space="preserve">
+    <value>Set your home on map</value>
+  </data>
+  <data name="ToolTipMessenger" xml:space="preserve">
+    <value>Messages, notifications</value>
+  </data>
+  <data name="ToolTipOrganizantions" xml:space="preserve">
+    <value>Create, join organization</value>
+  </data>
+  <data name="ToolTipUserProfile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="ToolTipUserSchedule" xml:space="preserve">
+    <value>Schedule for a week</value>
+  </data>
+  <data name="ToolTipWriteRoutes" xml:space="preserve">
+    <value>Edit the route from/to a job</value>
+  </data>
+  <data name="ToWork" xml:space="preserve">
+    <value>to work</value>
+    <comment>Route point</comment>
+  </data>
+  <data name="x18005" xml:space="preserve">
+    <value>can not add new complaint</value>
+  </data>
+  <data name="CarAndTrip" xml:space="preserve">
+    <value>Car and trips</value>
+  </data>
+  <data name="Car" xml:space="preserve">
+    <value>Car</value>
+  </data>
+  <data name="CarBrand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="CarModel" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="PassangersPlaces" xml:space="preserve">
+    <value>Passangers places:</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="GovNumber" xml:space="preserve">
+    <value>Reg number</value>
+  </data>
+  <data name="x19001" xml:space="preserve">
+    <value>Car has not been updated</value>
+  </data>
+  <data name="FindCompanionsFromWtoH" xml:space="preserve">
+    <value>Find companions to work</value>
+  </data>
+  <data name="FindCompantionFromHtoW" xml:space="preserve">
+    <value>Find companions to home</value>
+  </data>
+  <data name="LeaveOrganization" xml:space="preserve">
+    <value>Leave organization</value>
+  </data>
+  <data name="x20001" xml:space="preserve">
+    <value>You have been successfully leave organization</value>
+  </data>
+  <data name="x20002" xml:space="preserve">
+    <value>Due some errors your are not yet leave orgaztion</value>
+  </data>
+  <data name="x20003" xml:space="preserve">
+    <value>You are not member of this organization</value>
+  </data>
+  <data name="DayOfWeek" xml:space="preserve">
+    <value>Day of week</value>
+  </data>
+  <data name="DepartureToHome" xml:space="preserve">
+    <value>go home at</value>
+  </data>
+  <data name="DepartureToWork" xml:space="preserve">
+    <value>go to work at</value>
+  </data>
+  <data name="isWorkDay" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="ScheduleGrid" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="x21001" xml:space="preserve">
+    <value>User schedule was updated</value>
+  </data>
+  <data name="x21002" xml:space="preserve">
+    <value>User schedule was not updated</value>
+  </data>
+  <data name="x22001" xml:space="preserve">
+    <value>User location was updated</value>
+  </data>
+  <data name="x22002" xml:space="preserve">
+    <value>User location was not updated</value>
+  </data>
+  <data name="x11006" xml:space="preserve">
+    <value>can not create record in DB</value>
+  </data>
+  <data name="x11007" xml:space="preserve">
+    <value>can not create profile</value>
+  </data>
+  <data name="x11008" xml:space="preserve">
+    <value>can not encypt new Key</value>
+  </data>
+  <data name="x23004" xml:space="preserve">
+    <value>can not generate session key</value>
+  </data>
+  <data name="x23005" xml:space="preserve">
+    <value>can not check user sign</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="x24001" xml:space="preserve">
+    <value>Message was sent</value>
+  </data>
+  <data name="x24002" xml:space="preserve">
+    <value>Message was not sent</value>
+  </data>
+  <data name="x24003" xml:space="preserve">
+    <value>Message is too long</value>
+  </data>
+  <data name="Drive" xml:space="preserve">
+    <value>Drive</value>
+  </data>
+  <data name="SendInvite" xml:space="preserve">
+    <value>Send invite</value>
+  </data>
+  <data name="x51000" xml:space="preserve">
+    <value />
+  </data>
+  <data name="x51001" xml:space="preserve">
+    <value>Offer has been sent</value>
+  </data>
+  <data name="x51002" xml:space="preserve">
+    <value>Offer was not sent</value>
+  </data>
+  <data name="x51003" xml:space="preserve">
+    <value>Offer has been rejected</value>
+  </data>
+  <data name="x25001" xml:space="preserve">
+    <value>Offer was sent</value>
+  </data>
+  <data name="x25002" xml:space="preserve">
+    <value>Offer was not sent</value>
+  </data>
+  <data name="x51004" xml:space="preserve">
+    <value>Offer has been changed</value>
+  </data>
+  <data name="x51005" xml:space="preserve">
+    <value>Offer has been accepted</value>
+  </data>
+  <data name="x51006" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="x26001" xml:space="preserve">
+    <value>Trip accepted</value>
+  </data>
+  <data name="x26002" xml:space="preserve">
+    <value>Trip is not accepted</value>
+  </data>
+  <data name="x27001" xml:space="preserve">
+    <value>Trip is rejected</value>
+  </data>
+  <data name="x27002" xml:space="preserve">
+    <value>Trip is not rejected</value>
+  </data>
+  <data name="Offer" xml:space="preserve">
+    <value>Offer drive</value>
+  </data>
+  <data name="Places" xml:space="preserve">
+    <value>Places</value>
+  </data>
+  <data name="x10007" xml:space="preserve">
+    <value>don`t use your organization`s mailbox</value>
+  </data>
+  <data name="AutoJoin" xml:space="preserve">
+    <value>Join to ICL Services</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>Fr</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>Mo</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>Sa</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>Su</value>
+  </data>
+  <data name="Thu" xml:space="preserve">
+    <value>Th</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>Tu</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>We</value>
+  </data>
+  <data name="WriteRoute" xml:space="preserve">
+    <value>Edit the route</value>
+  </data>
+</root>

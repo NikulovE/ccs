@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="SharedProjectFile_SccProperties">
+    <SharedProjectFile_ProjectGuid>{d143bd9f-3d9b-4703-ba1d-e402b76f3b00}</SharedProjectFile_ProjectGuid>
+    <SharedProjectFile_SccProjectName>SAK</SharedProjectFile_SccProjectName>
+    <SharedProjectFile_SccAuxPath>SAK</SharedProjectFile_SccAuxPath>
+    <SharedProjectFile_SccLocalPath>SAK</SharedProjectFile_SccLocalPath>
+    <SharedProjectFile_SccProvider>SAK</SharedProjectFile_SccProvider>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fd813cb1-0ad3-4ee5-8bac-a9a3733c7341</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Animations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GeoPosition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModelView\UIBinding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModelView\UserCar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModelView\UserOrganizations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModelView\UserProfile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModelView\UserSchedule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Car.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CheckFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Companions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Complaint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\InitMaps.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Log.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Messages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Organizations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Registration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\RoutePoints.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Trips.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\UserHome.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\UserLocation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\UserProfile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\UserSchedule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Car.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\General.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Group.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\MapSymbols.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Organization.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\PathControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\TripOffer.cs" />
+  </ItemGroup>
+</Project>

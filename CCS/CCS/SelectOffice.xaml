@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CCS.SelectOffice">
+    <ContentPage.Content>
+        <Grid  x:Name="OfficeGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Select office" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large" />
+            <Picker Grid.Row="1" x:Name="OfficeList" ItemsSource="{Binding OfficeList}" Focused="StartSelectOffice" Margin="15" />
+            <Button Text="Continue" Grid.Row="2" VerticalOptions="End" Margin="5,0,0,10" Clicked="BackToMainPage" x:Name="Continue" IsVisible="False"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

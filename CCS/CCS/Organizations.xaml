@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CCS.Organizations">
+    <ContentPage.Content>
+        <Grid  x:Name="OrganizationGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label  Text="Organization"  HorizontalOptions="Start" Margin="10,10,0,0" VerticalOptions="Center" FontSize="Large" />
+
+            <StackLayout   Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0,0,0">
+
+                <StackLayout  Orientation="Vertical" >
+                    <Label  Text="My organizations:" Margin="5"  HorizontalTextAlignment="Center" FontSize="Medium"/>
+                    <ListView  ItemsSource="{Binding Path=OrganizationsList}" CachingStrategy="RecycleElement">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Text="Join organization" Clicked="JoinOrganization"/>
+                </StackLayout>
+                <StackLayout  Orientation="Horizontal" >
+                    <Label  Text="My office" Margin="5"  VerticalTextAlignment="Center" FontSize="Medium"/>
+                    <Picker Title="Select office" ItemsSource="{Binding Path=OfficeList}" x:Name="OfficeList" Focused="StartSelectOffice" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

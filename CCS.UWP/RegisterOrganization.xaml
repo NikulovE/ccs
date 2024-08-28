@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="CCS.UWP.RegisterOrganization"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CCS.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="RegisterGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="RegisterOrg" x:Uid="CreateCompanyT" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderTextBlockStyle}"  />
+        <StackPanel x:Name="ManualJoinOrgStackPanel"  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <StackPanel x:Name="OrgJoinIntro">
+                <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                    <TextBlock x:Uid="PrefferedNameT" Text="Name"   Margin="5" VerticalAlignment="Center" />
+                    <TextBox x:Name="ExtendOrgPrefferedName"  VerticalAlignment="Center" PlaceholderText="MyOrg LLC" Style="{StaticResource BaseBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock x:Uid="YourWorkEmail" Text="workemail"   Margin="5" VerticalAlignment="Center" />
+                    <TextBox x:Name="WorkMail"  VerticalAlignment="Center" PlaceholderText="workbox@myorg.com" Style="{StaticResource BaseBox}"/>
+                </StackPanel>
+                <TextBlock x:Uid="WorkEmailNote" Text="WorkEmailNote" MaxWidth="250" Style="{StaticResource Description}" />
+                <Button x:Uid="SendKeyB" Content="SendKeyB" Padding="8" Margin="10"   HorizontalAlignment="Center" Click="StartRegisterOrganization"/>
+            </StackPanel>
+            <StackPanel x:Name="OrgJoinConfrimationStack" Visibility="Collapsed">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Uid="ConfrimKey" Text="ConfrimKey"   Margin="5" VerticalAlignment="Center"/>
+                    <PasswordBox x:Name="Passbox"  VerticalAlignment="Center" MinWidth="230"  />
+                </StackPanel>
+                <Button x:Uid="Register" Content="JoinB" Padding="8"  Click="ConfirmOrgCreation"  HorizontalAlignment="Center" Margin="5"/>
+            </StackPanel>
+            <TextBlock Text="{Binding OutPut}"  HorizontalAlignment="Center"/>
+
+        </StackPanel>
+        <TextBlock x:Uid="PendingApproval" x:Name="SuccessStoryLabel" Text="SuccessCreated" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Style="{StaticResource SubheaderTextBlockStyle}"/>
+
+
+        <StackPanel x:Name="OrgJoinComplete" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Visibility="Collapsed">
+            <Button x:Uid="Continue" Content="ContinueC" Padding="8" Margin="10"  Click="ContinueIntro"/>
+            <!--<Button x:Name="SignOnBut"  Content="{x:Static res:Resources.RestoreAccess}" Padding="8" Margin="10" Visibility="Collapsed"  Click="SignOn" Style="{DynamicResource ModernButton}" Width="{Binding ActualWidth, ElementName=SendKey, Mode=OneWay}"/>-->
+        </StackPanel>
+
+    </Grid>
+</Page>

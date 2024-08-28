@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CCS.OrganizationJoin">
+    <ContentPage.Content>
+        <Grid  x:Name="OrgJointGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Join organization" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large" />
+            <StackLayout x:Name="StartJoin" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20">
+                <StackLayout  Orientation="Horizontal">
+                    <Label Text="Your work email:"  FontSize="Medium" VerticalOptions="Center"/>
+                    <Entry x:Name="InputedMail" VerticalOptions="Center" Placeholder="example@myorg.com" />
+                </StackLayout>
+                <Label Text="this e-mail won't be stored and will be only used once to confirm that you are an employee of the organization" />
+                <Label HorizontalTextAlignment="End" TextColor="Red" Text="{Binding Path=OutPut, Mode=TwoWay}"/>
+            </StackLayout>
+            <StackLayout x:Name="CompleteJoin" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20" IsVisible="False">
+                <StackLayout  Orientation="Horizontal">
+                    <Label Text="input key from email:" Margin="3" FontSize="Medium" VerticalOptions="Center"/>
+                    <Entry x:Name="InputedKey" VerticalOptions="Center" IsPassword="True" WidthRequest="150"/>
+                </StackLayout>
+                <Label HorizontalTextAlignment="End" TextColor="Red" Text="{Binding Path=OutPut, Mode=TwoWay}"/>
+            </StackLayout>
+            <Label x:Name="Success" Text="You have successfully joined" FontSize="Large" Grid.Row="1"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20" IsVisible="False"/>
+            
+            <StackLayout x:Name="SendKey" Orientation="Horizontal" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <Button  Text="Send key" Clicked="CheckEmail"/>
+            </StackLayout>
+            
+            <StackLayout x:Name="ConfirmKey" Orientation="Horizontal" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False">
+                <Button  Text="Join" Clicked="Join"/>
+            </StackLayout>
+            <StackLayout x:Name="ContinueS" Orientation="Horizontal" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False">
+                <Button  Text="Continue" Clicked="Continue"/>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

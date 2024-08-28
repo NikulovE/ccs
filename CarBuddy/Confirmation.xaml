@@ -1,0 +1,60 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CCS.WinStore.Confirmation"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CCS.WinStore"
+    xmlns:common="using:CCS.WinStore.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Back button and page title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+                        Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        VerticalAlignment="Top"
+                        AutomationProperties.Name="Back"
+                        AutomationProperties.AutomationId="BackButton"
+                        AutomationProperties.ItemType="Navigation Button" />
+            <TextBlock x:Uid="ConfirmationLabel" Text="ConfimationTB" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+        </Grid>
+
+        <Grid x:Name="ConfirmationGrid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel x:Name="InputPasswordField"  Orientation="Horizontal">
+                    <TextBlock x:Uid="GreetingInputPassword"  Text="GreetingPassw" Margin="5" Style="{StaticResource BaseTextBlockStyle}"/>
+                    <PasswordBox x:Name="PasswordFromMail"  MinWidth="240" VerticalAlignment="Center" />
+                </StackPanel>
+                <TextBlock x:Uid="DescriptionOfPasswordConfirmation" Text="DescriptionTB" Style="{StaticResource Description}" MaxWidth="250"/>
+                <TextBlock  Text="{Binding Path=OutPut, Mode=TwoWay}" HorizontalAlignment="Right" Foreground="Red"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="BackToRegistartionGrid" x:Uid="Back"  Content="BackC" Padding="8" Margin="10" Click="BackToRegistration" Width="{Binding ActualWidth, ElementName=ConfirmPassword, Mode=OneWay}" />
+                <Button x:Name="ConfirmPassword" x:Uid="Continue"  Content="ContinueC" Padding="8" Margin="10" Click="ConfirmRegistration" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

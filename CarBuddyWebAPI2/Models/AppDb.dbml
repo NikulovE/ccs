@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CCSDB" Class="AppDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CCSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AppDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CarBrands" Member="CarBrands">
+    <Type Name="CarBrand">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Brand" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Association Name="CarBrand_Car" Member="Cars" ThisKey="Id" OtherKey="CarBrandID" Type="Car" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="OfficeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Payment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Rating" Type="System.Decimal" DbType="Decimal(2,1)" CanBeNull="true" />
+      <Column Name="isDriver" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_Car" Member="Cars" ThisKey="UID" OtherKey="UID" Type="Car" />
+      <Association Name="User_Message" Member="Messages" ThisKey="UID" OtherKey="From" Type="Message" />
+      <Association Name="User_Message1" Member="Messages1" ThisKey="UID" OtherKey="To" Type="Message" />
+      <Association Name="User_Session" Member="Sessions" ThisKey="UID" OtherKey="UID" Type="Session" />
+      <Association Name="User_Office" Member="Offices" ThisKey="OfficeID" OtherKey="OfficeID" Type="Office" />
+      <Association Name="User_OrgJoiner" Member="OrgJoiners" ThisKey="UID" OtherKey="UID" Type="OrgJoiner" />
+      <Association Name="User_GroupMember" Member="GroupMembers" ThisKey="UID" OtherKey="UID" Type="GroupMember" />
+      <Association Name="User_Schedule" Member="Schedules" ThisKey="UID" OtherKey="UID" Type="Schedule" />
+      <Association Name="User_Trip" Member="Trips" ThisKey="UID" OtherKey="DriverUID" Type="Trip" />
+      <Association Name="User_Trip1" Member="Trips1" ThisKey="UID" OtherKey="PassengerUID" Type="Trip" />
+      <Association Name="User_Path" Member="Paths" ThisKey="UID" OtherKey="UID" Type="Path" />
+      <Association Name="User_Home" Member="Homes" ThisKey="UID" OtherKey="UID" Type="Home" />
+      <Association Name="Home_User" Member="Home" ThisKey="UID" OtherKey="UID" Type="Home" IsForeignKey="true" />
+      <Association Name="OrgJoiner_User" Member="OrgJoiner" ThisKey="UID" OtherKey="UID" Type="OrgJoiner" IsForeignKey="true" />
+      <Association Name="OrgEmployee_User" Member="OrgEmployee" ThisKey="UID" OtherKey="UID" Type="OrgEmployee" IsForeignKey="true" />
+      <Association Name="Group_User" Member="Group" ThisKey="UID" OtherKey="CreatorUID" Type="Group" IsForeignKey="true" />
+      <Association Name="GroupJoiner_User" Member="GroupJoiner" ThisKey="UID" OtherKey="UID" Type="GroupJoiner" IsForeignKey="true" />
+      <Association Name="Car_User" Member="Car" ThisKey="UID" OtherKey="UID" Type="Car" IsForeignKey="true" />
+      <Association Name="Session_User" Member="Session" ThisKey="UID" OtherKey="UID" Type="Session" IsForeignKey="true" />
+      <Association Name="Registration_User" Member="Registration" ThisKey="UID" OtherKey="UID" Type="Registration" IsForeignKey="true" />
+      <Association Name="Schedule_User" Member="Schedule" ThisKey="UID" OtherKey="UID" Type="Schedule" IsForeignKey="true" />
+      <Association Name="Path_User" Member="Path" ThisKey="UID" OtherKey="UID" Type="Path" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cars" Member="Cars">
+    <Type Name="Car">
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CarBrand" Member="CarBrandID" Storage="_CarBrand" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarModel" Member="CarModelID" Storage="_CarModel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarCapacity" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="CarGovNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarComfort" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ColorID" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Association Name="Car_User" Member="Users" ThisKey="UID" OtherKey="UID" Type="User" />
+      <Association Name="Car_Session" Member="Sessions" ThisKey="UID" OtherKey="UID" Type="Session" />
+      <Association Name="User_Car" Member="User" ThisKey="UID" OtherKey="UID" Type="User" IsForeignKey="true" />
+      <Association Name="Session_Car" Member="Session" ThisKey="UID" OtherKey="UID" Type="Session" IsForeignKey="true" />
+      <Association Name="CarBrand_Car" Member="CarBrandS" ThisKey="CarBrandID" OtherKey="Id" Type="CarBrand" IsForeignKey="true" />
+      <Association Name="CarModel_Car" Member="CarModelS" ThisKey="CarModelID" OtherKey="Id" Type="CarModel" IsForeignKey="true" />
+      <Association Name="Color_Car" Member="Color" ThisKey="ColorID" OtherKey="ColorID" Type="Color" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CurrentPositions" Member="CurrentPositions">
+    <Type Name="CurrentPosition">
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="longitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="latitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FeedBacks" Member="FeedBacks">
+    <Type Name="FeedBack">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FromUID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ToUID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TripID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Rate" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Messages" Member="Messages">
+    <Type Name="Message">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FromUID" Member="From" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="ToUID" Member="To" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(210)" CanBeNull="true" />
+      <Column Name="Code" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="User_Message" Member="FromUser" ThisKey="From" OtherKey="UID" Type="User" IsForeignKey="true" />
+      <Association Name="User_Message1" Member="ToUser" ThisKey="To" OtherKey="UID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Registrations" Member="Registrations">
+    <Type Name="Registration">
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Mail" Type="System.String" DbType="NVarChar(320) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Errors" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="RSApublic" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="RSAprivate" Type="System.String" DbType="NVarChar(1700)" CanBeNull="true" />
+      <Column Name="isConfirmed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Registration_User" Member="Users" ThisKey="UID" OtherKey="UID" Type="User" />
+      <Association Name="Registration_Session" Member="Sessions" ThisKey="UID" OtherKey="UID" Type="Session" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Service" Member="Services">
+    <Type Name="Service">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stamp" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sessions" Member="Sessions">
+    <Type Name="Session">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cryptkey" Member="CryptKey" Storage="_Key" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Errors" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="Session_User" Member="Users" ThisKey="UID" OtherKey="UID" Type="User" />
+      <Association Name="Session_Car" Member="Cars" ThisKey="UID" OtherKey="UID" Type="Car" />
+      <Association Name="Session_Home" Member="Homes" ThisKey="UID" OtherKey="UID" Type="Home" />
+      <Association Name="Session_OrgEmployee" Member="OrgEmployees" ThisKey="UID" OtherKey="UID" Type="OrgEmployee" />
+      <Association Name="Registration_Session" Member="Registration" ThisKey="UID" OtherKey="UID" Type="Registration" IsForeignKey="true" />
+      <Association Name="Car_Session" Member="Car" ThisKey="UID" OtherKey="UID" Type="Car" IsForeignKey="true" />
+      <Association Name="User_Session" Member="User" ThisKey="UID" OtherKey="UID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Invitations" Member="Invitations">
+    <Type Name="Invitation">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Driver" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Passanger" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Confirmed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="isToDriver" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Homes" Member="Homes">
+    <Type Name="Home">
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="longtitude" Storage="_longitude" Type="System.Double" DbType="Float" CanBeNull="false" />
+      <Column Name="latitude" Type="System.Double" DbType="Float" CanBeNull="false" />
+      <Association Name="Home_User" Member="Users" ThisKey="UID" OtherKey="UID" Type="User" />
+      <Association Name="Session_Home" Member="Session" ThisKey="UID" OtherKey="UID" Type="Session" IsForeignKey="true" />
+      <Association Name="User_Home" Member="User" ThisKey="UID" OtherKey="UID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Offices" Member="Offices">
+    <Type Name="Office">
+      <Column Name="OfficeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="longitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="latitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="OrgID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupCompanyID" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Association Name="Organization_Office" Member="Organization" ThisKey="OrgID" OtherKey="OrgID" Type="Organization" IsForeignKey="true" />
+      <Association Name="User_Office" Member="User" ThisKey="OfficeID" OtherKey="OfficeID" Type="User" IsForeignKey="true" />
+      <Association Name="OrgEmployee_Office" Member="OrgEmployee" ThisKey="OrgID" OtherKey="OrgID" Type="OrgEmployee" IsForeignKey="true" />
+      <Association Name="GroupCompany_Office" Member="GroupCompanyByGCID" ThisKey="GroupCompanyID" OtherKey="GroupCompanyID" Type="GroupCompany" IsForeignKey="true" />
+      <Association Name="GroupCompany_Office1" Member="GroupCompanyByOrgID" ThisKey="OrgID" OtherKey="OrgID" Type="GroupCompany" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Organizations" Member="Organizations">
+    <Type Name="Organization">
+      <Column Name="OrgID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="false" />
+      <Column Name="Domain" Type="System.String" DbType="NVarChar(120)" CanBeNull="false" />
+      <Column Name="isApproved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Organization_Office" Member="Offices" ThisKey="OrgID" OtherKey="OrgID" Type="Office" />
+      <Association Name="Organization_OrgEmployee" Member="OrgEmployees" ThisKey="OrgID" OtherKey="OrgID" Type="OrgEmployee" />
+      <Association Name="Organization_GroupCompany" Member="GroupCompanies" ThisKey="OrgID" OtherKey="OrgID" Type="GroupCompany" />
+      <Association Name="OrgJoiner_Organization" Member="OrgJoiner" ThisKey="OrgID" OtherKey="OrgID" Type="OrgJoiner" IsForeignKey="true" />
+      <Association Name="GroupCompany_Organization" Member="GroupCompany" ThisKey="OrgID" OtherKey="OrgID" Type="GroupCompany" IsForeignKey="true" />
+      <Association Name="OrgEmployee_Organization" Member="OrgEmployee" ThisKey="OrgID" OtherKey="OrgID" Type="OrgEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrgJoiners" Member="OrgJoiners">
+    <Type Name="OrgJoiner">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(33)" CanBeNull="true" />
+      <Column Name="OrgID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="OrgJoiner_User" Member="Users" ThisKey="UID" OtherKey="UID" Type="User" />
+      <Association Name="OrgJoiner_Organization" Member="Organizations" ThisKey="OrgID" OtherKey="OrgID" Type="Organization" />
+      <Association Name="User_OrgJoiner" Member="User" ThisKey="UID" OtherKey="UID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrgEmployees" Member="OrgEmployees">
+    <Type Name="OrgEmployee">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrgID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="isVisibile" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="OrgEmployee_User" Member="Users" ThisKey="UID" OtherKey="UID" Type="User" />
+      <Association Name="OrgEmployee_Office" Member="Offices" ThisKey="OrgID" OtherKey="OrgID" Type="Office" />
+      <Association Name="OrgEmployee_Organization" Member="Organizations" ThisKey="OrgID" OtherKey="OrgID" Type="Organization" />
+      <Association Name="OrgEmployee_GroupCompany" Member="GroupCompanies" ThisKey="OrgID" OtherKey="OrgID" Type="GroupCompany" />
+      <Association Name="Organization_OrgEmployee" Member="Organization" ThisKey="OrgID" OtherKey="OrgID" Type="Organization" IsForeignKey="true" />
+      <Association Name="Session_OrgEmployee" Member="Session" ThisKey="UID" OtherKey="UID" Type="Session" IsForeignKey="true" />
+      <Association Name="GroupCompany_OrgEmployee" Member="GroupCompany" ThisKey="OrgID" OtherKey="OrgID" Type="GroupCompany" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrgRegistrations" Member="OrgRegistrations">
+    <Type Name="OrgRegistration">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(120)" CanBeNull="true" />
+      <Column Name="Domain" Type="System.String" DbType="NVarChar(120)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupJoiners" Member="GroupJoiners">
+    <Type Name="GroupJoiner">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(33)" CanBeNull="true" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="GroupJoiner_User" Member="Users" ThisKey="UID" OtherKey="UID" Type="User" />
+      <Association Name="Group_GroupJoiner" Member="Group" ThisKey="GroupID" OtherKey="GroupID" Type="Group" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Groups" Member="Groups">
+    <Type Name="Group">
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatorUID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Group_User" Member="Users" ThisKey="CreatorUID" OtherKey="UID" Type="User" />
+      <Association Name="Group_GroupJoiner" Member="GroupJoiners" ThisKey="GroupID" OtherKey="GroupID" Type="GroupJoiner" />
+      <Association Name="Group_GroupMember" Member="GroupMembers" ThisKey="GroupID" OtherKey="GroupID" Type="GroupMember" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupMembers" Member="GroupMembers">
+    <Type Name="GroupMember">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="isVisibile" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="User_GroupMember" Member="User" ThisKey="UID" OtherKey="UID" Type="User" IsForeignKey="true" />
+      <Association Name="Group_GroupMember" Member="Group" ThisKey="GroupID" OtherKey="GroupID" Type="Group" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoutePoints" Member="RoutePoints">
+    <Type Name="RoutePoint">
+      <Column Name="RoutePointId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="longtitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="latitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PathID" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Association Name="RoutePoint_Path" Member="Paths" ThisKey="PathID" OtherKey="PathID" Type="Path" />
+      <Association Name="Path_RoutePoint" Member="Path" ThisKey="PathID" OtherKey="PathID" Type="Path" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Complaints" Member="Complaints">
+    <Type Name="Complaint">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SysCode" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="UniqID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FromUID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CarModels" Member="CarModels">
+    <Type Name="CarModel">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarBrandID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CarModel_Car" Member="Cars" ThisKey="Id" OtherKey="CarModelID" Type="Car" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Schedules" Member="Schedules">
+    <Type Name="Schedule">
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MonToHome" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="TueToHome" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="WedToHome" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="ThuToHome" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FriToHome" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="SatToHome" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="SunToHome" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="MonToWork" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="TueToWork" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="WedToWork" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="ThuToWork" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FriToWork" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="SatToWork" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="SunToWork" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="isMon" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isTue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isWed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isThu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isFri" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isSat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isSun" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Schedule_User" Member="Users" ThisKey="UID" OtherKey="UID" Type="User" />
+      <Association Name="User_Schedule" Member="User" ThisKey="UID" OtherKey="UID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Trips" Member="Trips">
+    <Type Name="Trip">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DriverUID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PassengerUID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="isConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Member="PlannedStartTime" Storage="_TimeStamp" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Longtitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Latitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="isForEvening" Member="isToHome" Storage="_isForEvening" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isRepeat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isFromDriver" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="User_Trip" Member="Driver" ThisKey="DriverUID" OtherKey="UID" Type="User" IsForeignKey="true" />
+      <Association Name="User_Trip1" Member="Passenger" ThisKey="PassengerUID" OtherKey="UID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupCompanies" Member="GroupCompanies">
+    <Type Name="GroupCompany">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupCompanyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrganizationID" Member="OrgID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GroupCompany_Office" Member="OfficesByGroupCompanyGCID" ThisKey="GroupCompanyID" OtherKey="GroupCompanyID" Type="Office" />
+      <Association Name="GroupCompany_Office1" Member="OfficesByGroupCompanyOrgID" ThisKey="OrgID" OtherKey="OrgID" Type="Office" />
+      <Association Name="GroupCompany_Organization" Member="Organizations" ThisKey="OrgID" OtherKey="OrgID" Type="Organization" />
+      <Association Name="GroupCompany_OrgEmployee" Member="OrgEmployees" ThisKey="OrgID" OtherKey="OrgID" Type="OrgEmployee" />
+      <Association Name="OrgEmployee_GroupCompany" Member="OrgEmployee" ThisKey="OrgID" OtherKey="OrgID" Type="OrgEmployee" IsForeignKey="true" />
+      <Association Name="Organization_GroupCompany" Member="Organization" ThisKey="OrgID" OtherKey="OrgID" Type="Organization" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Paths" Member="Paths">
+    <Type Name="Path">
+      <Column Name="PathID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PathName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="way" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsMon" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsTue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsWed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsThu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsFri" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsSat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsSun" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Path_User" Member="Users" ThisKey="UID" OtherKey="UID" Type="User" />
+      <Association Name="Path_RoutePoint" Member="RoutePoints" ThisKey="PathID" OtherKey="PathID" Type="RoutePoint" />
+      <Association Name="User_Path" Member="User" ThisKey="UID" OtherKey="UID" Type="User" IsForeignKey="true" />
+      <Association Name="RoutePoint_Path" Member="RoutePoint" ThisKey="PathID" OtherKey="PathID" Type="RoutePoint" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Colors" Member="Colors">
+    <Type Name="Color">
+      <Column Name="ColorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ColorName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Color_Car" Member="Cars" ThisKey="ColorID" OtherKey="ColorID" Type="Car" />
+    </Type>
+  </Table>
+</Database>

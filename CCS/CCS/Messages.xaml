@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:CCS"
+             x:Class="CCS.Messages" Disappearing="ContentPage_Disappearing">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:DateTimeConverter x:Key="DateTimeConverter" />
+            <local:MessageConverter x:Key="MessageConverter" />
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ListView  x:Name="MessagesStack" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell  >
+                        <Grid >
+                            <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill" >
+                                <Label Text="{Binding Path=With}" VerticalTextAlignment="Center" FontSize="Large"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry  Text="{Binding NewMessage, Mode=TwoWay}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                                    <Button Text=">" ClassId="{Binding WithUID}"  Clicked="SendMessage" WidthRequest="40"/>
+                                </StackLayout>
+                                <ListView ItemsSource="{Binding UserConversation}" Margin="20,0,0,0" HasUnevenRows="True">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <Grid>
+                                                    <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+                                                        <Label Text="{Binding Path=From}" />
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <Label Text="{Binding Path=MessageText}" />
+                                                            <Label Text="{Binding Path=SysCode, Converter={StaticResource MessageConverter}}" />
+                                                        </StackLayout>
+                                                        <Label  Text="{Binding Path=TimeStamp, Converter={StaticResource DateTimeConverter}}}" FontSize="Micro"/>
+                                                    </StackLayout>
+       
+                                                </Grid>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

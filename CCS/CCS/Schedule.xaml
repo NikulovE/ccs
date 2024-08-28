@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CCS.Schedule" Disappearing="UpdateSchedule">
+    <ContentPage.Content>
+        <Grid x:Name="ScheduleGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Text="Weekly schedule"  HorizontalOptions="Start" Margin="10,10,0,0" VerticalOptions="Center" FontSize="Large" Grid.Row="0"/>
+
+            <ScrollView Grid.Row="1" Margin="10,0,0,0"  Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label Text="Enabled" VerticalTextAlignment="Center" FontSize="Large" Margin="0,0,0,15"/>
+                        <Label Text="go home at" FontSize="Medium" VerticalTextAlignment="Center" Margin="0,0,0,15" />
+                        <Label Text="go to work at" Margin="0,0,0,15" FontSize="Medium" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="Monday" VerticalTextAlignment="Center" FontSize="Large"  />
+                            <Switch IsToggled="{Binding Monday.IsEnabled}"/>
+                        </StackLayout>
+                        <TimePicker Time="{Binding Monday.ToHomeHlp}"/>
+                        <TimePicker Time="{Binding Monday.ToWorkHlp}"/>
+                    </StackLayout>
+                    <StackLayout >
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Tuesday" VerticalTextAlignment="Center" FontSize="Large"/>
+                            <Switch IsToggled="{Binding Tuesday.IsEnabled}"/>
+                        </StackLayout>
+                        <TimePicker Time="{Binding Tuesday.ToHomeHlp}"/>
+                        <TimePicker Time="{Binding Tuesday.ToWorkHlp}"/>
+                    </StackLayout>
+                    <StackLayout >
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Wednesday" VerticalTextAlignment="Center" FontSize="Large"/>
+                            <Switch IsToggled="{Binding Wednesday.IsEnabled}"/>
+                        </StackLayout>
+                        <TimePicker Time="{Binding Wednesday.ToHomeHlp}"/>
+                        <TimePicker Time="{Binding Wednesday.ToWorkHlp}"/>
+                    </StackLayout>
+                    <StackLayout >
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Thursday" VerticalTextAlignment="Center" FontSize="Large"/>
+                            <Switch IsToggled="{Binding Thursday.IsEnabled}"/>
+                        </StackLayout>
+                        <TimePicker Time="{Binding Thursday.ToHomeHlp}"/>
+                        <TimePicker Time="{Binding Thursday.ToWorkHlp}"/>
+                    </StackLayout>
+                    <StackLayout >
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Friday" VerticalTextAlignment="Center" FontSize="Large"/>
+                            <Switch IsToggled="{Binding Friday.IsEnabled}"/>
+                        </StackLayout>
+                        <TimePicker Time="{Binding Friday.ToHomeHlp}"/>
+                        <TimePicker Time="{Binding Friday.ToWorkHlp}"/>
+                    </StackLayout>
+                    <StackLayout >
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Saturday" VerticalTextAlignment="Center" FontSize="Large"/>
+                            <Switch IsToggled="{Binding Saturday.IsEnabled}"/>
+                        </StackLayout>
+                        <TimePicker Time="{Binding Saturday.ToHomeHlp}"/>
+                        <TimePicker Time="{Binding Saturday.ToWorkHlp}"/>
+                    </StackLayout>
+                    <StackLayout >
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Sunday" VerticalTextAlignment="Center" FontSize="Large"/>
+                            <Switch IsToggled="{Binding Sunday.IsEnabled}"/>
+                        </StackLayout>
+                        <TimePicker Time="{Binding Sunday.ToHomeHlp}"/>
+                        <TimePicker Time="{Binding Sunday.ToWorkHlp}"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

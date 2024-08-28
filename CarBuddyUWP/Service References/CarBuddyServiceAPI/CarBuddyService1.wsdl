@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CarBuddyService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CarBuddyAPI" />
+      <xsd:import schemaLocation="http://api.unicarbuddy.ru/CarBuddyService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICarBuddyService_StartRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartRegistration" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_StartRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ConfirmRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmRegistration" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ConfirmRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_RestoreRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestoreRegistration" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_RestoreRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestoreRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_RestoreSessionKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestoreSessionKey" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_RestoreSessionKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestoreSessionKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadProfile" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_Logon_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logon" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_Logon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_UpdateProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProfile" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_UpdateProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ChangeDriverMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeDriverMode" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ChangeDriverMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeDriverModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadGroups" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_GenerateInviteToGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateInviteToGroup" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_GenerateInviteToGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateInviteToGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_CreateGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGroup" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_CreateGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_JoinGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGroup" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_JoinGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LeaveGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGroup" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LeaveGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadOrganizations_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadOrganizations" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadOrganizations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadOrganizationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadOffices_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadOffices" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadOffices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadOfficesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ChangeVisibility_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeVisibility" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ChangeVisibility_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeVisibilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_StartOrganizationRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartOrganizationRegistration" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_StartOrganizationRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartOrganizationRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ConfirmOrganizationRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmOrganizationRegistration" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ConfirmOrganizationRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmOrganizationRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_InternalOrganizationKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:InternalOrganizationKey" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_InternalOrganizationKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InternalOrganizationKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_StartJoinToOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartJoinToOrganization" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_StartJoinToOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartJoinToOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ConfirmJoinOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmJoinOrganization" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ConfirmJoinOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmJoinOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LeaveOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveOrganization" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LeaveOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_CreateOffice_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOffice" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_CreateOffice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOfficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_BingMapsAPIKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:BingMapsAPIKey" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_BingMapsAPIKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BingMapsAPIKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_SetHome_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetHome" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_SetHome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetHomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_SaveRoutePoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRoutePoint" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_SaveRoutePoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRoutePointResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ChangeRoutePoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeRoutePoint" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ChangeRoutePoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeRoutePointResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ChangePath_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePath" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_ChangePath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadRoutePoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadRoutePoints" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadRoutePoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadRoutePointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadHome_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadHome" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadHome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadHomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_FindingCompanions_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindingCompanions" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_FindingCompanions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindingCompanionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_NewComplaint_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewComplaint" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_NewComplaint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewComplaintResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_GetCarBrands_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarBrands" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_GetCarBrands_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarBrandsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_GetCarModels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarModels" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_GetCarModels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadUserCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadUserCar" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadUserCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadUserCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_UpdateCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCar" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_UpdateCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_GetUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_GetUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadSchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadSchedule" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadSchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_UpdateSchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSchedule" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_UpdateSchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_UpdateLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLocation" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_UpdateLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadPreviousLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPreviousLocation" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadPreviousLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPreviousLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadMessages" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadTrips_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadTrips" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadTrips_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadTripsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_SendTripOffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendTripOffer" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_SendTripOffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendTripOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_AcceptOffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptOffer" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_AcceptOffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_RejectOffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectOffer" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_RejectOffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejectOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadAppFeedbacks_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAppFeedbacks" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_LoadAppFeedbacks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAppFeedbacksResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_SaveFeedBack_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveFeedBack" />
+  </wsdl:message>
+  <wsdl:message name="ICarBuddyService_SaveFeedBack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveFeedBackResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICarBuddyService">
+    <wsdl:operation name="StartRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/StartRegistration" message="tns:ICarBuddyService_StartRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/StartRegistrationResponse" message="tns:ICarBuddyService_StartRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/ConfirmRegistration" message="tns:ICarBuddyService_ConfirmRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/ConfirmRegistrationResponse" message="tns:ICarBuddyService_ConfirmRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/RestoreRegistration" message="tns:ICarBuddyService_RestoreRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/RestoreRegistrationResponse" message="tns:ICarBuddyService_RestoreRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreSessionKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/RestoreSessionKey" message="tns:ICarBuddyService_RestoreSessionKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/RestoreSessionKeyResponse" message="tns:ICarBuddyService_RestoreSessionKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadProfile" message="tns:ICarBuddyService_LoadProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadProfileResponse" message="tns:ICarBuddyService_LoadProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logon">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/Logon" message="tns:ICarBuddyService_Logon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LogonResponse" message="tns:ICarBuddyService_Logon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/UpdateProfile" message="tns:ICarBuddyService_UpdateProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/UpdateProfileResponse" message="tns:ICarBuddyService_UpdateProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/ChangeDriverMode" message="tns:ICarBuddyService_ChangeDriverMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/ChangeDriverModeResponse" message="tns:ICarBuddyService_ChangeDriverMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadGroups" message="tns:ICarBuddyService_LoadGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadGroupsResponse" message="tns:ICarBuddyService_LoadGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInviteToGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/GenerateInviteToGroup" message="tns:ICarBuddyService_GenerateInviteToGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/GenerateInviteToGroupResponse" message="tns:ICarBuddyService_GenerateInviteToGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/CreateGroup" message="tns:ICarBuddyService_CreateGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/CreateGroupResponse" message="tns:ICarBuddyService_CreateGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/JoinGroup" message="tns:ICarBuddyService_JoinGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/JoinGroupResponse" message="tns:ICarBuddyService_JoinGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LeaveGroup" message="tns:ICarBuddyService_LeaveGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LeaveGroupResponse" message="tns:ICarBuddyService_LeaveGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadOrganizations">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadOrganizations" message="tns:ICarBuddyService_LoadOrganizations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadOrganizationsResponse" message="tns:ICarBuddyService_LoadOrganizations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadOffices">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadOffices" message="tns:ICarBuddyService_LoadOffices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadOfficesResponse" message="tns:ICarBuddyService_LoadOffices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeVisibility">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/ChangeVisibility" message="tns:ICarBuddyService_ChangeVisibility_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/ChangeVisibilityResponse" message="tns:ICarBuddyService_ChangeVisibility_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartOrganizationRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/StartOrganizationRegistration" message="tns:ICarBuddyService_StartOrganizationRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/StartOrganizationRegistrationResponse" message="tns:ICarBuddyService_StartOrganizationRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmOrganizationRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/ConfirmOrganizationRegistration" message="tns:ICarBuddyService_ConfirmOrganizationRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/ConfirmOrganizationRegistrationResponse" message="tns:ICarBuddyService_ConfirmOrganizationRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InternalOrganizationKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/InternalOrganizationKey" message="tns:ICarBuddyService_InternalOrganizationKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/InternalOrganizationKeyResponse" message="tns:ICarBuddyService_InternalOrganizationKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartJoinToOrganization">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/StartJoinToOrganization" message="tns:ICarBuddyService_StartJoinToOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/StartJoinToOrganizationResponse" message="tns:ICarBuddyService_StartJoinToOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmJoinOrganization">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/ConfirmJoinOrganization" message="tns:ICarBuddyService_ConfirmJoinOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/ConfirmJoinOrganizationResponse" message="tns:ICarBuddyService_ConfirmJoinOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveOrganization">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LeaveOrganization" message="tns:ICarBuddyService_LeaveOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LeaveOrganizationResponse" message="tns:ICarBuddyService_LeaveOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOffice">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/CreateOffice" message="tns:ICarBuddyService_CreateOffice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/CreateOfficeResponse" message="tns:ICarBuddyService_CreateOffice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BingMapsAPIKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/BingMapsAPIKey" message="tns:ICarBuddyService_BingMapsAPIKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/BingMapsAPIKeyResponse" message="tns:ICarBuddyService_BingMapsAPIKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetHome">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/SetHome" message="tns:ICarBuddyService_SetHome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/SetHomeResponse" message="tns:ICarBuddyService_SetHome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRoutePoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/SaveRoutePoint" message="tns:ICarBuddyService_SaveRoutePoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/SaveRoutePointResponse" message="tns:ICarBuddyService_SaveRoutePoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeRoutePoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/ChangeRoutePoint" message="tns:ICarBuddyService_ChangeRoutePoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/ChangeRoutePointResponse" message="tns:ICarBuddyService_ChangeRoutePoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePath">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/ChangePath" message="tns:ICarBuddyService_ChangePath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/ChangePathResponse" message="tns:ICarBuddyService_ChangePath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadRoutePoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadRoutePoints" message="tns:ICarBuddyService_LoadRoutePoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadRoutePointsResponse" message="tns:ICarBuddyService_LoadRoutePoints_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadHome">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadHome" message="tns:ICarBuddyService_LoadHome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadHomeResponse" message="tns:ICarBuddyService_LoadHome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindingCompanions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/FindingCompanions" message="tns:ICarBuddyService_FindingCompanions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/FindingCompanionsResponse" message="tns:ICarBuddyService_FindingCompanions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewComplaint">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/NewComplaint" message="tns:ICarBuddyService_NewComplaint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/NewComplaintResponse" message="tns:ICarBuddyService_NewComplaint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarBrands">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/GetCarBrands" message="tns:ICarBuddyService_GetCarBrands_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/GetCarBrandsResponse" message="tns:ICarBuddyService_GetCarBrands_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarModels">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/GetCarModels" message="tns:ICarBuddyService_GetCarModels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/GetCarModelsResponse" message="tns:ICarBuddyService_GetCarModels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadUserCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadUserCar" message="tns:ICarBuddyService_LoadUserCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadUserCarResponse" message="tns:ICarBuddyService_LoadUserCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/UpdateCar" message="tns:ICarBuddyService_UpdateCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/UpdateCarResponse" message="tns:ICarBuddyService_UpdateCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/GetUserInfo" message="tns:ICarBuddyService_GetUserInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/GetUserInfoResponse" message="tns:ICarBuddyService_GetUserInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSchedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadSchedule" message="tns:ICarBuddyService_LoadSchedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadScheduleResponse" message="tns:ICarBuddyService_LoadSchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSchedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/UpdateSchedule" message="tns:ICarBuddyService_UpdateSchedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/UpdateScheduleResponse" message="tns:ICarBuddyService_UpdateSchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/UpdateLocation" message="tns:ICarBuddyService_UpdateLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/UpdateLocationResponse" message="tns:ICarBuddyService_UpdateLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadPreviousLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadPreviousLocation" message="tns:ICarBuddyService_LoadPreviousLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadPreviousLocationResponse" message="tns:ICarBuddyService_LoadPreviousLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadMessages" message="tns:ICarBuddyService_LoadMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadMessagesResponse" message="tns:ICarBuddyService_LoadMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/SendMessage" message="tns:ICarBuddyService_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/SendMessageResponse" message="tns:ICarBuddyService_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadTrips">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadTrips" message="tns:ICarBuddyService_LoadTrips_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadTripsResponse" message="tns:ICarBuddyService_LoadTrips_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTripOffer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/SendTripOffer" message="tns:ICarBuddyService_SendTripOffer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/SendTripOfferResponse" message="tns:ICarBuddyService_SendTripOffer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptOffer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/AcceptOffer" message="tns:ICarBuddyService_AcceptOffer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/AcceptOfferResponse" message="tns:ICarBuddyService_AcceptOffer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectOffer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/RejectOffer" message="tns:ICarBuddyService_RejectOffer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/RejectOfferResponse" message="tns:ICarBuddyService_RejectOffer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAppFeedbacks">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/LoadAppFeedbacks" message="tns:ICarBuddyService_LoadAppFeedbacks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/LoadAppFeedbacksResponse" message="tns:ICarBuddyService_LoadAppFeedbacks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFeedBack">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarBuddyService/SaveFeedBack" message="tns:ICarBuddyService_SaveFeedBack_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarBuddyService/SaveFeedBackResponse" message="tns:ICarBuddyService_SaveFeedBack_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICarBuddyService" type="tns:ICarBuddyService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StartRegistration">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/StartRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmRegistration">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/ConfirmRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreRegistration">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/RestoreRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreSessionKey">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/RestoreSessionKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadProfile">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logon">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/Logon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfile">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/UpdateProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDriverMode">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/ChangeDriverMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadGroups">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInviteToGroup">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/GenerateInviteToGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/CreateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinGroup">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/JoinGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGroup">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LeaveGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadOrganizations">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadOrganizations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadOffices">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadOffices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeVisibility">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/ChangeVisibility" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartOrganizationRegistration">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/StartOrganizationRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmOrganizationRegistration">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/ConfirmOrganizationRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InternalOrganizationKey">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/InternalOrganizationKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartJoinToOrganization">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/StartJoinToOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmJoinOrganization">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/ConfirmJoinOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveOrganization">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LeaveOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOffice">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/CreateOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BingMapsAPIKey">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/BingMapsAPIKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetHome">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/SetHome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRoutePoint">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/SaveRoutePoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeRoutePoint">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/ChangeRoutePoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePath">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/ChangePath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadRoutePoints">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadRoutePoints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadHome">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadHome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindingCompanions">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/FindingCompanions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewComplaint">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/NewComplaint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarBrands">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/GetCarBrands" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarModels">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/GetCarModels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadUserCar">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadUserCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCar">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/UpdateCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSchedule">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSchedule">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/UpdateSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLocation">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/UpdateLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadPreviousLocation">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadPreviousLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMessages">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadTrips">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadTrips" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTripOffer">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/SendTripOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptOffer">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/AcceptOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectOffer">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/RejectOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAppFeedbacks">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/LoadAppFeedbacks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFeedBack">
+      <soap:operation soapAction="http://tempuri.org/ICarBuddyService/SaveFeedBack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CarBuddyService">
+    <wsdl:port name="BasicHttpBinding_ICarBuddyService" binding="tns:BasicHttpBinding_ICarBuddyService">
+      <soap:address location="http://api.unicarbuddy.ru/CarBuddyService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

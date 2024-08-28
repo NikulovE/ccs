@@ -1,0 +1,866 @@
+﻿<Application x:Class="CCS.Classic.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CCS.Classic"
+             xmlns:res="clr-namespace:CCS.Classic.Properties"
+             xmlns:u="clr-namespace:Shared.ModelView"
+             xmlns:src="clr-namespace:CCS.Classic"
+             StartupUri="MainWindow.xaml"
+             >
+    <Application.Resources>
+        <local:InvertBoolConverter x:Key="InvertedBoolen"/>
+        <local:VisibilityInverter x:Key="VisibilityInverter"/>
+        <local:ConvertStringMessages x:Key="MessageConverter"/>
+        <local:ConvertVisibilityMode x:Key="VisibilityConverter"/>
+        <local:TrueVisibile x:Key="TrueVisibile"/>
+        <local:FalseVisibile x:Key="FalseVisibile"/>
+        <local:ConfirmConverter x:Key="ConfirmConverter"/>
+        <local:ToHomeConverter x:Key="ToHomeConverter"/>
+        <local:DayConverter x:Key="DayConverter"/>
+        <local:DateTimeConverter x:Key="DateTimeConverter"/>
+        <local:SelectedOffice x:Key="SelectedOffice"/>
+        <local:LocalTimeConverter x:Key="LocalTimeConverter"/>
+        <local:SelectPathConverter x:Key="SelectPathConverter"/>
+        <local:WriteRouteConverter x:Key="WriteRouteConverter"/>
+
+        <Style x:Key="ModernButton" TargetType="Button">
+            <Setter Property="Background" Value="Gainsboro"/>
+            <Setter Property="BorderBrush" Value="Silver"/>
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="FontSize" Value="16"/>
+
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border 
+				            BorderThickness="{TemplateBinding BorderThickness}"
+				            BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" Padding="5" CornerRadius="2">
+
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Silver" />
+                                <Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="SlateGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="BaseText">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+        
+        
+        <Style TargetType="TextBlock" x:Key="Symbol">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="FontFamily" Value="/CCS.Classic;component/Resources/#Segoe MDL2 Assets"/>
+        </Style>
+        <Style TargetType="TextBox" x:Key="BaseBox">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="MinWidth" Value="200"/>
+        </Style>
+
+        <Style TargetType="TreeView" x:Key="MessageTree">
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Path=UserConversation}" >
+                        <StackPanel Margin="3">
+                            <TextBlock Text="{Binding Path=With}" FontWeight="Bold" FontSize="14" />
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBox x:Name="MessageText" Width="200" VerticalContentAlignment="Center" />
+                                <Button Tag="{Binding Path=WithUID}" IsEnabled="{Binding isOnLoading, Mode=TwoWay, Source={x:Static u:UIBinding.Default}, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource InvertedBoolen}}" Uid="{Binding ElementName=MessageText, Path=Text, Mode=OneWay}" Content="&#xE724;" FontFamily="/CCS.Classic;component/Resources/#Segoe MDL2 Assets" Style="{StaticResource ModernButton}" Click="SendMessage" Height="25" Width="25"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <HierarchicalDataTemplate.ItemTemplate >
+                            <DataTemplate>
+                                <StackPanel Margin="5" MaxWidth="200">
+                                    <TextBlock Text="{Binding Path=From}" FontWeight="Bold" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Path=MessageText}" TextWrapping="Wrap" />
+                                        <TextBlock Text="{Binding Path=SysCode, Converter={StaticResource MessageConverter}}" TextWrapping="Wrap" />
+                                    </StackPanel>
+
+                                    <TextBlock Text="{Binding Path=TimeStamp, Converter={StaticResource LocalTimeConverter}}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </HierarchicalDataTemplate.ItemTemplate>
+
+                    </HierarchicalDataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="TreeViewItem">
+                        <Setter Property="IsSelected" Value="False"/>
+                        <Setter Property="IsExpanded" Value="True"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ItemsControl" x:Key="Offerslist">
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate >
+                        <StackPanel Margin="3" Orientation="Horizontal"  >
+                            <TextBlock Text="{Binding Path=Companion}" FontSize="14" Style="{StaticResource BaseText}"  Width="230" TextWrapping="NoWrap"/>
+                            <Button Content="{Binding Confirmed, Converter={StaticResource ConfirmConverter}}" FontFamily="/CCS.Classic;component/Resources/#Segoe MDL2 Assets" IsEnabled="{Binding Path=IsCanBeAccepted}" Visibility="{Binding Path=IsCanBeAccepted, Converter={StaticResource FalseVisibile}}"/>
+                            <Button Content="&#xE0E7;" FontFamily="/CCS.Classic;component/Resources/#Segoe MDL2 Assets" Visibility="{Binding Path=IsCanBeAccepted, Converter={StaticResource TrueVisibile}}" Tag="{Binding Path=OfferID}" Click="AcceptOffer"/>
+                            <Button Content="&#xE10A;" FontFamily="/CCS.Classic;component/Resources/#Segoe MDL2 Assets" Tag="{Binding Path=OfferID}" Click="RejectOffer"/>
+                            <TextBlock Text="{Binding Path=IsToHome, Converter={StaticResource ToHomeConverter}}" FontSize="14" Style="{StaticResource Symbol}"    />
+                            <!--<TextBlock Text="{Binding Path=StartTime, Converter={StaticResource DayConverter}}"  Style="{StaticResource Symbol}" ToolTip="{Binding Path=StartTime, Converter={StaticResource DateTimeConverter}}"/>-->
+
+                        </StackPanel>
+
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="HomeWorkToggleButtonSymbol" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Background" Value="Gainsboro"/>
+            <Setter Property="BorderBrush" Value="Silver"/>
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="Cursor" Value="Arrow"/>
+            <Setter Property="FontFamily" Value="/CCS.Classic;component/Resources/#Segoe MDL2 Assets"/>
+
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}" >
+                        <Border 
+				            BorderThickness="{TemplateBinding BorderThickness}"
+				            BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" Padding="5,5" >
+
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Silver" />
+                                <Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="SlateGray"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Content" Value="&#xE72B;"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Content" Value="&#xE72A;"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ItemsControl" x:Key="PathList">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    
+                    <DataTemplate >
+                        <StackPanel  Orientation="Horizontal" Margin="0,3">
+                            <RadioButton Content="{Binding Path=PathID, Converter={StaticResource WriteRouteConverter}}" GroupName="RoutePoints" Tag="{Binding Path=PathID}" Style="{DynamicResource RoutePoint}" Initialized="CheckLast" Checked="SelectPath"/>
+                            <!--<ToggleButton Content="&#xE105;"  Style="{DynamicResource ModernToggleButton}" FontFamily="/CCS.Classic;component/Resources/#Segoe UI Symbol"/>-->
+                            <ToggleButton IsChecked="{Binding Path=IsToHome}" Style="{DynamicResource HomeWorkToggleButton}" ToolTip="{x:Static res:Resources.ToggleToHomeToWorkTooltip}" Checked="SwithRoutePathWayToHome" Unchecked="SwithRoutePathWayToWork"  />
+
+                            <StackPanel Orientation="Horizontal">
+                                <ToggleButton IsChecked="{Binding Path=IsMon, Converter={StaticResource InvertedBoolen}}" Content="{x:Static res:Resources.Mon}" Style="{DynamicResource ModernToggleButton}" Tag="{Binding Path=PathID}" Uid="1" Checked="EnableActuality" Unchecked="DisableActuality"/>
+                                <ToggleButton IsChecked="{Binding Path=IsTue, Converter={StaticResource InvertedBoolen}}" Content="{x:Static res:Resources.Tue}" Style="{DynamicResource ModernToggleButton}" Tag="{Binding Path=PathID}" Uid="2" Checked="EnableActuality" Unchecked="DisableActuality"/>
+                                <ToggleButton IsChecked="{Binding Path=IsWed, Converter={StaticResource InvertedBoolen}}" Content="{x:Static res:Resources.Wed}" Style="{DynamicResource ModernToggleButton}" Tag="{Binding Path=PathID}" Uid="3" Checked="EnableActuality" Unchecked="DisableActuality"/>
+                                <ToggleButton IsChecked="{Binding Path=IsThu, Converter={StaticResource InvertedBoolen}}" Content="{x:Static res:Resources.Thu}" Style="{DynamicResource ModernToggleButton}" Tag="{Binding Path=PathID}" Uid="4" Checked="EnableActuality" Unchecked="DisableActuality"/>
+                                <ToggleButton IsChecked="{Binding Path=IsFri, Converter={StaticResource InvertedBoolen}}" Content="{x:Static res:Resources.Fri}" Style="{DynamicResource ModernToggleButton}" Tag="{Binding Path=PathID}" Uid="5" Checked="EnableActuality" Unchecked="DisableActuality"/>
+                                <ToggleButton IsChecked="{Binding Path=IsSat, Converter={StaticResource InvertedBoolen}}" Content="{x:Static res:Resources.Sat}" Style="{DynamicResource ModernToggleButton}" Tag="{Binding Path=PathID}" Uid="6" Checked="EnableActuality" Unchecked="DisableActuality"/>
+                                <ToggleButton IsChecked="{Binding Path=IsSun, Converter={StaticResource InvertedBoolen}}" Content="{x:Static res:Resources.Sun}" Style="{DynamicResource ModernToggleButton}" Tag="{Binding Path=PathID}" Uid="7" Checked="EnableActuality" Unchecked="DisableActuality"/>
+                            </StackPanel>
+                            <!--<ToggleButton IsChecked="{Binding Path=IsToHome}" Style="{DynamicResource HomeWorkToggleButtonSymbol}"  Tag="{Binding Path=PathID}" IsEnabled="False" Checked="SwithRoutePathWayToHome" Unchecked="SwithRoutePathWayToWork"  />-->
+                        </StackPanel>
+
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style TargetType="ListViewItem" x:Key="Office">
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Path=Content}" />
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ItemsControl" x:Key="OfficesList">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="ItemTemplate">
+
+                <Setter.Value>
+                    <DataTemplate >
+                        <ListViewItem Content="{Binding Path=Name}" Tag="{Binding Path=ID}" IsSelected="{Binding Path=ID, Converter={StaticResource SelectedOffice}}" Style="{StaticResource Office}" PreviewMouseDown="SelectOffice" />
+
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="HeaderText">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Description">
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="Margin" Value="0,2,0,0"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+
+        <Style TargetType="StackPanel" x:Key="TimePanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style TargetType="PasswordBox" x:Key="BasePBox">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="MinWidth" Value="200"/>
+        </Style>
+
+        <Style TargetType="Grid" x:Key="SettingsGrid">
+            <Setter Property="MinWidth" Value="260"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="Walker">
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Background" Value="Gainsboro"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border 
+				            BorderThickness="1"
+				            BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" CornerRadius="2" Padding="3">
+                            <StackPanel  >
+                                <TextBlock Foreground="Black" FontSize="76" Text="&#xE805;" Padding="5" Margin="5,6,6,2" FontFamily="/CCS.Classic;component/Resources/#Segoe MDL2 Assets"/>
+                                <TextBlock HorizontalAlignment="Center" Text="{x:Static res:Resources.Walker}" Margin="0,0,0,2" Style="{StaticResource BaseText}"  />
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Silver" />
+                                <Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="SlateGray"/>
+                            </Trigger>
+                            <!--<Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#FF838383"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Background" Value="Gainsboro"/>
+                            </Trigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="Driver">
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Background" Value="Gainsboro"/>
+            <!--<Setter Property="IsChecked" Value="{Binding is, RelativeSource={RelativeSource Self}}" />-->
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border 
+				            BorderThickness="1"
+				            BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" CornerRadius="2" Padding="3">
+                            <StackPanel  >
+                                <TextBlock Foreground="Black" FontSize="76" Text="&#xEA5E;" Padding="5" Margin="5,6,6,2" FontFamily="/CCS.Classic;component/Resources/#Segoe MDL2 Assets"/>
+                                <TextBlock HorizontalAlignment="Center" Text="{x:Static res:Resources.Driver}" Margin="0,0,0,2" Style="{StaticResource BaseText}"  />
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Silver" />
+                                <Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="SlateGray"/>
+                            </Trigger>
+                            <!--<Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#FF838383"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Background" Value="Gainsboro"/>
+                            </Trigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ToggleButton" x:Key="MyDriverMode">
+            <Setter Property="Foreground" Value="Transparent"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontFamily" Value="/CCS.Classic;component/Resources/#Segoe MDL2 Assets"/>
+            <Setter Property="FontSize" Value="76"/>
+            <Setter Property="Margin" Value="0,6,6,2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <TextBlock  Text="{TemplateBinding Content}" Foreground="Black" Margin="5,0,0,0" />
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Content" Value="&#xEA5E;"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Content" Value="&#xE805;"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <Style TargetType="ToggleButton" x:Key="DriverMode">
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="2"/>
+            <!--<Setter Property="IsChecked" Value="{Binding is, RelativeSource={RelativeSource Self}}" />-->
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border 
+				            BorderThickness="1"
+				            BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" CornerRadius="2" Padding="3">
+                            <StackPanel  >
+                                <ToggleButton Style="{DynamicResource MyDriverMode}" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Path=IsChecked}" />
+                                <TextBlock HorizontalAlignment="Center"  Text="{TemplateBinding Content}" Margin="0,0,0,2" Style="{StaticResource BaseText}"  />
+
+
+                            </StackPanel>
+                        </Border>
+
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Silver" />
+                                <Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="SlateGray"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Content" Value="{x:Static res:Resources.Driver}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Content" Value="{x:Static res:Resources.Walker}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ToggleButton" x:Key="MyToggleButton">
+            <Setter Property="Foreground" Value="Transparent"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <StackPanel  Orientation="Horizontal">
+                            <!--<Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="40" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>-->
+                            <Border  BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" CornerRadius="2" MinWidth="40"/>
+                            <!--<ContentPresenter />-->
+                            <TextBlock  Grid.Column="1" Text="{TemplateBinding Content}" Foreground="Black" Background="Transparent" Margin="5,0,0,0" />
+
+                        </StackPanel>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="LimeGreen" />
+                                <Setter Property="Content" Value="{x:Static res:Resources.Show}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Background" Value="Tomato" />
+                                <Setter Property="Content" Value="{x:Static res:Resources.Hide}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <Style TargetType="ToggleButton" x:Key="AreaOfView">
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton" >
+                        <Border 
+				            BorderThickness="1"
+				            BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" CornerRadius="2" Padding="3">
+                            <StackPanel >
+                                <TextBlock HorizontalAlignment="Left"  Text="{TemplateBinding Content}" Margin="0,0,0,2"/>
+                                <ToggleButton  HorizontalAlignment="Left" Style="{DynamicResource MyToggleButton}" IsChecked="{TemplateBinding IsChecked}" />
+
+                            </StackPanel>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Silver" />
+                                <Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="SlateGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="BackButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Setter Property="FontFamily" Value="/CCS.Classic;component/Resources/#Segoe MDL2 Assets"/>
+            <Setter Property="Content" Value="&#xE0C4;"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="5"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="Border" Padding="6"  BorderThickness="1.0" BorderBrush="{TemplateBinding BorderBrush}"  Background="{TemplateBinding Background}" CornerRadius="50">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Gainsboro" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Black" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TopMenuButton" TargetType="Button">
+            <Setter Property="Visibility" Value="Visible"/>
+            <Setter Property="Background" Value="Gainsboro"/>
+            <Setter Property="BorderBrush" Value="Silver"/>
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="/CCS.Classic;component/Resources/#Segoe MDL2 Assets"/>
+            <Setter Property="Cursor" Value="Arrow"/>
+
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button" >
+                        <Border 
+				            BorderThickness="{TemplateBinding BorderThickness}"
+				            BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" Padding="12,12" CornerRadius="0">
+
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Silver" />
+                                <Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="SlateGray"/>
+                            </Trigger>
+                            <!--<Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#FF838383"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Background" Value="Gainsboro"/>
+                            </Trigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TopMenuToggleButton" TargetType="ToggleButton">
+            <!--<Setter Property="Visibility" Value="Visible"/>-->
+            <Setter Property="Background" Value="Gainsboro"/>
+            <Setter Property="BorderBrush" Value="Silver"/>
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="/CCS.Classic;component/Resources/#Segoe MDL2 Assets"/>
+            <Setter Property="Cursor" Value="Arrow"/>
+
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton" >
+                        <Border 
+				            BorderThickness="{TemplateBinding BorderThickness}"
+				            BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" Padding="12,12" CornerRadius="0">
+
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Silver" />
+                                <Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="SlateGray"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#FF838383"/>
+                            </Trigger>
+                            <!--<Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Background" Value="Gainsboro"/>
+                            </Trigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ModernToggleButton" TargetType="ToggleButton">
+            <Setter Property="Background" Value="Gainsboro"/>
+            <Setter Property="BorderBrush" Value="Silver"/>
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="Cursor" Value="Arrow"/>
+
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton" >
+                        <Border 
+				            BorderThickness="{TemplateBinding BorderThickness}"
+				            BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" Padding="5,5" >
+
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Silver" />
+                                <Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="SlateGray"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Foreground" Value="#FF838383"/>
+                            </Trigger>
+                            <!--<Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Background" Value="Gainsboro"/>
+                            </Trigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="HomeWorkToggleButton" TargetType="ToggleButton">
+            <Setter Property="Background" Value="Gainsboro"/>
+            <Setter Property="BorderBrush" Value="Silver"/>
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="Cursor" Value="Arrow"/>
+            <Setter Property="FontFamily" Value="/CCS.Classic;component/Resources/#Segoe MDL2 Assets"/>
+
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton" >
+                        <Border 
+				            BorderThickness="{TemplateBinding BorderThickness}"
+				            BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" Padding="5,5" >
+
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Silver" />
+                                <Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="SlateGray"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Content" Value="&#xEA8A;"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Content" Value="&#xEB4E;"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RoutePoint" TargetType="ToggleButton">
+            <!--<Setter Property="Visibility" Value="Visible"/>-->
+            <Setter Property="Background" Value="Gainsboro"/>
+            <Setter Property="BorderBrush" Value="Silver"/>
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="Cursor" Value="Arrow"/>
+            <!--<Setter Property="Margin" Value="5,0,5,0"/>-->
+            <!--<Setter Property="FontSize" Value="18"/>-->
+            <!--<Setter Property="VerticalContentAlignment" Value="Center"/>-->
+            <!--<Setter Property="FontWeight" Value="UltraBold" />-->
+            <!--<Setter Property="FontFamily" Value="/CCS.Classic;component/Resources/#Segoe MDL2 Assets"/>-->
+
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton" >
+                        <Border 
+				            BorderThickness="{TemplateBinding BorderThickness}"
+				            BorderBrush="{TemplateBinding BorderBrush}" 
+				            Background="{TemplateBinding Background}" Padding="5,5" >
+
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Silver" />
+                                <Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" Value="True">
+                                <!--<Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>-->
+                                <Setter Property="Background" Value="#FFA2A2A2"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <!--<Setter Property="BorderBrush" Value="#FF555555"/>
+                                <Setter Property="BorderThickness" Value="0.7"/>-->
+                                <Setter Property="Foreground" Value="Silver"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="RoundPlus" TargetType="Button">
+            <Border x:Name="ExpanderButtonBorder"
+                    Background="Transparent"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Padding="{TemplateBinding Padding}"
+                    >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="Transparent" Grid.ColumnSpan="2"/>
+                    <Ellipse Name="Circle"
+                         Grid.Column="0"
+                         Stroke="DarkGray"
+                         Width="20"
+                         Height="20"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         />
+                    <Path x:Name="Sign"
+                      Grid.Column="0"
+                      Data="M 0,5 H 10 M 5,0 V 10 Z"
+                      Stroke="#FF666666"
+                      Width="10" 
+                      Height="10"  
+                      StrokeThickness="2"
+                          
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      RenderTransformOrigin="0.5,0.5" 
+                      />
+                </Grid>
+            </Border>
+            <ControlTemplate.Triggers>
+                <!--Change the sign to minus when toggled-->
+
+                <!-- MouseOver, Pressed behaviours-->
+                <Trigger Property="IsMouseOver"
+                                 Value="true">
+                    <Setter Property="Stroke"
+                                    Value="Black"
+                                    TargetName="Circle"/>
+                    <Setter Property="Stroke"
+                                    Value="Black"
+                                    TargetName="Sign"/>
+                </Trigger>
+                <Trigger Property="IsPressed"
+                                 Value="true">
+                    <Setter Property="Stroke"
+                                    Value="#FF526C7B"
+                                    TargetName="Circle"/>
+                    <Setter Property="StrokeThickness"
+                                    Value="1.5"
+                                    TargetName="Circle"/>
+                    <Setter Property="Stroke"
+                                    Value="#FF003366"
+                                    TargetName="Sign"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="RoundMinus" TargetType="Button">
+            <Border x:Name="ExpanderButtonBorder"
+                    Background="Transparent"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Padding="{TemplateBinding Padding}"
+                    >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="Transparent"
+                               Grid.ColumnSpan="2"/>
+                    <Ellipse Name="Circle"
+                         Grid.Column="0"
+                         Stroke="DarkGray"
+                         Width="20"
+                         Height="20"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         />
+                    <Path x:Name="Sign"
+                      Grid.Column="0"
+                      Data="M 0,5 H 10 Z"
+                      Stroke="#FF666666"
+                      Width="10"
+                      Height="10"
+                      StrokeThickness="2"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      RenderTransformOrigin="0.5,0.5"
+                      />
+                    <ContentPresenter x:Name="HeaderContent"
+                                  Grid.Column="1"
+                                  Margin="4,0,0,0"
+                                  ContentSource="Content"/>
+                </Grid>
+            </Border>
+            <ControlTemplate.Triggers>
+                <!--Change the sign to minus when toggled-->
+
+                <!-- MouseOver, Pressed behaviours-->
+                <Trigger Property="IsMouseOver"
+                                 Value="true">
+                    <Setter Property="Stroke"
+                                    Value="Black"
+                                    TargetName="Circle"/>
+                    <Setter Property="Stroke"
+                                    Value="Black"
+                                    TargetName="Sign"/>
+                </Trigger>
+                <Trigger Property="IsPressed"
+                                 Value="true">
+                    <Setter Property="Stroke"
+                                    Value="#FF526C7B"
+                                    TargetName="Circle"/>
+                    <Setter Property="StrokeThickness"
+                                    Value="1.5"
+                                    TargetName="Circle"/>
+                    <Setter Property="Stroke"
+                                    Value="#FF003366"
+                                    TargetName="Sign"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+
+
+
+
+    </Application.Resources>
+</Application>

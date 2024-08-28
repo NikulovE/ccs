@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="CCS.UWP.EditCar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CCS.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="CarInfo" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Uid="CarT" Text="CarT" Style="{StaticResource SubheaderTextBlockStyle}" Grid.ColumnSpan="2" Padding="8,0,0,0"/>
+        <TextBlock x:Uid="CarBrand" Text="CarBrandT" Grid.Row="1" Style="{StaticResource SubtitleTextBlockStyle}" Padding="8,0,0,0" />
+        <ComboBox x:Name="CarBrandSelector" HorizontalContentAlignment="Stretch"  Grid.Row="1" Grid.Column="1" Margin="15,3" DropDownOpened="StartSelectCarBrand" DropDownClosed="FinalSelectCarBrand"   >
+            <ComboBoxItem x:Name="BrandX" Content="{Binding Brand, Mode=TwoWay}" IsSelected="True"/>
+        </ComboBox>
+        <TextBlock  Grid.Row="2" x:Uid="CarModel" Text="CarModelT" Style="{StaticResource SubtitleTextBlockStyle}" Padding="8,0,0,0"/>
+        <ComboBox x:Name="CarModelSelector" HorizontalContentAlignment="Stretch" Grid.Row="2" Grid.Column="1" Margin="15,3" SelectionChanged="SelectCarModel" >
+            <!--<ComboBoxItem x:Name="ModelX" Content="{Binding Model, Mode=TwoWay}" IsSelected="True"/>-->
+        </ComboBox>
+        <TextBlock  Grid.Row="3" x:Uid="GovNumber" Text="GovNumberT" Style="{StaticResource SubtitleTextBlockStyle}" Padding="8,0,0,0"/>
+        <TextBox x:Name="GovNumber" HorizontalContentAlignment="Stretch" Grid.Row="3" Grid.Column="1" Margin="15,3" Style="{StaticResource BaseBox}" Text="{Binding GovNumber}"  />
+        <StackPanel x:Name="PassangerPlacesStack" Grid.Row="4"  Orientation="Horizontal" Grid.ColumnSpan="2" >
+            <TextBlock x:Uid="PassangersPlaces" Text="PassangersPlacesT" Style="{StaticResource SubtitleTextBlockStyle}" Padding="8,0,5,0" />
+            <StackPanel Orientation="Horizontal">
+                <Button Grid.Row="1"  Click="DecreasePassangerPlaces" Style="{StaticResource RoundMinus}" />
+                <TextBlock x:Name="PassPLaces" Style="{StaticResource BaseTextBlockStyle}" Text="{Binding Places, Mode=TwoWay}" Margin="5,0" FontSize="16" VerticalAlignment="Center" />
+                <Button Grid.Row="1"  Click="ExpandPassangerPlaces"   Style="{StaticResource RoundPlus}"  />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

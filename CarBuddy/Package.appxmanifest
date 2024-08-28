@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="5924EvgeniyNikulov.CommuteCarSharing" Publisher="CN=6B0C8669-51CF-41B7-8B9B-DECF50BF5090" Version="0.1.0.9" />
+  <Properties>
+    <DisplayName>Commute Car Sharing</DisplayName>
+    <PublisherDisplayName>Evgeniy Nikulov</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="CCS.WinStore.App">
+      <m2:VisualElements DisplayName="Commute Car Sharing" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Commute Car Sharing it is a organizations-oriented ridesharing application. Simply post a ride offer or request, wait for another user to respond, then off you go. This is particularly helpful if you’re planning a road-trip and don’t have wheels of your own to work and back. Important part of application that you will find users only from your own office!" ForegroundText="dark" BackgroundColor="#FFFFFF" ToastCapable="false">
+        <m2:DefaultTile DefaultSize="square150x150Logo" Square310x310Logo="Assets\Square310x310Logo.png" Wide310x150Logo="Assets\widelogo.png" Square70x70Logo="Assets\Square70x70Logo.png">
+        </m2:DefaultTile>
+        <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#FFFFFF" />
+        <m2:InitialRotationPreference>
+          <m2:Rotation Preference="landscape" />
+          <m2:Rotation Preference="landscapeFlipped" />
+        </m2:InitialRotationPreference>
+      </m2:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
+</Package>

@@ -1,0 +1,75 @@
+﻿@model AppWeb.Models.LaunchControl
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active">@Html.ActionLink("Home", null, "Home")</li>
+                    <li>@Html.ActionLink("About", null, "About")</li>
+                    <li>@Html.ActionLink("Downloads", null, "Downloads") </li>
+                    <li>@Html.ActionLink("Feedback", null, "Feedback")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (@ViewBag.LoginedUser!=true)
+                    {
+                    <li>@Html.ActionLink("Log in", null, "Login")</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3">
+            </div>
+
+            <div class="col-sm-9">
+
+                <hr>
+                <h2>Commute Car Sharing</h2>
+
+                <p>Commute Car Sharing is organizations-oriented application. Simply post a ride offer or request, wait for another user to respond, then off you go. This is particularly helpful if you’re planning a road-trip and don’t have wheels of your own to work and back. Important part that you will find users only from your own office</p>
+                <br><br>
+                @if (@ViewBag.LoginedUser==true)
+                {
+                   <input type="submit" class="btn btn-success" value="Launch application" onclick="location.href='@Url.Action("Index", "App")'" />
+                }
+
+               
+
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-left navbar-fixed-bottom">
+        <p>Evgeniy Nikulov</p>
+    </footer>
+</body>
+</html>

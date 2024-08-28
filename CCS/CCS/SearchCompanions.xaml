@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="CCS.SearchCompanions" Title="Search companions" Appearing="ContentPage_Appearing" >
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="To home" Clicked="SearchToHome"/>
+                <Button Text="To work" Clicked="SearchToWork"/>
+            </StackLayout>
+            <maps:Map MapType="Street" x:Name="SearchMap" Grid.Row="1" >
+            </maps:Map>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
